@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<!--
+Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: https://1.envato.market/EA4JP
+Renew Support: https://1.envato.market/EA4JP
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+	<!--begin::Head-->
+	<head>
+		<base href="">
+		<meta charset="utf-8" />
+		<title>Metronic Live preview | Keenthemes</title>
+		<meta name="description" content="Updates and statistics" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		{% include "home/stylesheets.html"%}
+
+		{% block head %}
+    	{% endblock %}
+	</head>
+
+	<!--end::Head-->
+
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled page-loading">
+
+		<!--[html-partial:include:{"file":"layout.html"}]/-->
+		<div class="d-flex flex-column flex-root">
+
+			<!--begin::Page-->
+			<div class="d-flex flex-row flex-column-fluid page">
+
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+
+					<!--[html-partial:include:{"file":"partials/_header-mobile.html"}]/-->
+	{% include "home/partials/_header-mobile.html"%}
+					<!--[html-partial:include:{"file":"partials/_header.html"}]/-->
+	{% include "home/partials/_header.html"%}
+					<!--begin::Container-->
+					<div class="d-flex flex-row flex-column-fluid container">
+
+						<!--begin::Content Wrapper-->
+						<div class="main d-flex flex-column flex-row-fluid">
+
+							<!--[html-partial:include:{"file":"partials/_subheader/subheader-v1.html"}]/-->
+								{% include "home/partials/_subheader/subheader-v1.html"%}
+							<div class="content flex-column-fluid" id="kt_content">
+		{% block content %}
+		{% endblock %}
+	<!--[html-partial:end:{"id":"demo11/dist/inc/view/demos/pages/index","page":"index"}]/-->
+							</div>
+
+							<!--end::Content-->
+						</div>
+
+						<!--begin::Content Wrapper-->
+					</div>
+
+					<!--end::Container-->
+
+					<!--[html-partial:include:{"file":"partials/_footer.html"}]/-->
+				</div>
+
+				<!--end::Wrapper-->
+			</div>
+
+			<!--end::Page-->
+		</div>
+		<!--[html-partial:include:{"file":"partials/_extras/offcanvas/quick-notifications.html"}]/-->
+		{% include "home/partials/_extras/offcanvas/quick-notifications.html"%}
+		<!--[html-partial:include:{"file":"partials/_extras/offcanvas/quick-user.html"}]/-->
+		{% include "home/partials/_extras/offcanvas/quick-user.html"%}
+		<!--[html-partial:include:{"file":"partials/_extras/offcanvas/quick-panel.html"}]/-->
+		{% include "home/partials/_extras/offcanvas/quick-panel.html"%}
+		<!--[html-partial:include:{"file":"partials/_extras/chat.html"}]/-->
+		{% include "home/partials/_extras/chat.html"%}
+		<!--[html-partial:include:{"file":"partials/_extras/scrolltop.html"}]/-->
+		{% include "home/partials/_extras/scrolltop.html"%}
+
+		{% include "home/scripts.html"%}
+		<script type="text/javascript">
+		  {% for message in messages %}
+			{% if message.tags == "error" %}
+			  errorMessage("{{message}}");
+			{% elif message.tags == "success" %}
+			  successMessage("{{message}}");
+			{% endif %}
+		  {% endfor %}
+		</script>
+	{% block script %}
+  {% endblock %}
+
+	</body>
+
+	<!--end::Body-->
+</html>

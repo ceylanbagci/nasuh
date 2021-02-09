@@ -1,0 +1,219 @@
+{% extends "home/base.html" %}
+
+{% block head %}
+{{form.media}}
+		<!--<link rel="shortcut icon" href="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.css" />-->
+{% endblock %}
+
+{% block content %}
+<!--end::Subheader-->
+<div class="content flex-column-fluid" id="kt_content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Müvekkil Oluştur</h3>
+
+                </div>
+                <!--begin::Form-->
+                {%if instance%}
+                    <form action="/case/{{instance.slug}}/update_client" method="post" enctype="multipart/form-data" novalidate>
+                {%else%}
+                    <form action="/case/create_client" method="post" enctype="multipart/form-data" novalidate>
+                {%endif%}
+                        {% csrf_token %}
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>Adı
+                            <span class="text-danger">*</span></label>
+                            {{form.first_name}}
+                            {%for error in form.first_name.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Müvekkilin Adını Girin.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Soyadı
+                            <span class="text-danger">*</span></label>
+                            {{form.last_name}}
+                            {%for error in form.last_name.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Müvekkilin Soyadını Girin.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            {{form.email}}
+                            <span class="form-text text-muted">Müvekkilin Email Adresini Girin.</span>
+                            {%for error in form.email.errors%}
+                                <div class="invalid-feedback">{{error}}</div>
+                              {%endfor%}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            {{form.phone}}
+                            <span class="form-text text-muted">Müvekkilin Telefonunu Adresini Girin.</span>
+                            {%for error in form.phone.errors%}
+                                <div class="invalid-feedback">{{error}}</div>
+                              {%endfor%}
+                        </div>
+
+                        <div class="form-group">
+                            <label>İl</label>
+                            {{form.city}}
+                            <span class="form-text text-muted">Müvekkilin İlini Seçin.</span>
+                            {%for error in form.city.errors%}
+                                <div class="invalid-feedback">{{error}}</div>
+                              {%endfor%}
+                        </div>
+
+                        <div class="form-group">
+                            <label>İlçe</label>
+                            {{form.district}}
+                            <span class="form-text text-muted">Müvekkilin İlçesini Seçin.</span>
+                            {%for error in form.district.errors%}
+                                <div class="invalid-feedback">{{error}}</div>
+                              {%endfor%}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            {{form.description}}
+                            <span class="form-text text-muted">Açıklama Girin.</span>
+                            {%for error in form.description.errors%}
+                              <div class="invalid-feedback">{{error}}</div>
+                            {%endfor%}
+                        </div>
+
+                        <!--begin: Code-->
+                        <div class="example-code mt-10">
+                            <div class="example-highlight">
+                                <pre style="height:400px">
+                            <code class="language-html">
+                            &lt;div class="card card-custom"&gt;
+                            &lt;div class="card-header"&gt;
+                            &lt;h3 class="card-title"&gt;
+                            Base Controls
+                            &lt;/h3&gt;
+                            &lt;div class="card-toolbar"&gt;
+                            &lt;div class="example-tools justify-content-center"&gt;
+                            &lt;span class="example-toggle" data-toggle="tooltip" title="View code"&gt;&lt;/span&gt;
+                            &lt;span class="example-copy" data-toggle="tooltip" title="Copy code"&gt;&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;!--begin::Form--&gt;
+                            &lt;form&gt;
+                            &lt;div class="card-body"&gt;
+                            &lt;div class="form-group mb-8"&gt;
+                            &lt;div class="alert alert-custom alert-default" role="alert"&gt;
+                            &lt;div class="alert-icon"&gt;&lt;i class="flaticon-warning text-primary"&gt;&lt;/i&gt;&lt;/div&gt;
+                            &lt;div class="alert-text"&gt;
+                            The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group"&gt;
+                            &lt;label&gt;Email address &lt;span class="text-danger"&gt;*&lt;/span&gt;&lt;/label&gt;
+                            &lt;input type="email" class="form-control"  placeholder="Enter email"/&gt;
+                            &lt;span class="form-text text-muted"&gt;We'll never share your email with anyone else.&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group"&gt;
+                            &lt;label for="exampleInputPassword1"&gt;Password &lt;span class="text-danger"&gt;*&lt;/span&gt;&lt;/label&gt;
+                            &lt;input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group"&gt;
+                            &lt;label&gt;Static:&lt;/label&gt;
+                            &lt;p class="form-control-plaintext text-muted"&gt;email@example.com&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group"&gt;
+                            &lt;label for="exampleSelect1"&gt;Example select &lt;span class="text-danger"&gt;*&lt;/span&gt;&lt;/label&gt;
+                            &lt;select class="form-control" id="exampleSelect1"&gt;
+                            &lt;option&gt;1&lt;/option&gt;
+                            &lt;option&gt;2&lt;/option&gt;
+                            &lt;option&gt;3&lt;/option&gt;
+                            &lt;option&gt;4&lt;/option&gt;
+                            &lt;option&gt;5&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group"&gt;
+                            &lt;label for="exampleSelect2"&gt;Example multiple select &lt;span class="text-danger"&gt;*&lt;/span&gt;&lt;/label&gt;
+                            &lt;select multiple="" class="form-control" id="exampleSelect2"&gt;
+                            &lt;option&gt;1&lt;/option&gt;
+                            &lt;option&gt;2&lt;/option&gt;
+                            &lt;option&gt;3&lt;/option&gt;
+                            &lt;option&gt;4&lt;/option&gt;
+                            &lt;option&gt;5&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;/div&gt;
+                            &lt;div class="form-group mb-1"&gt;
+                            &lt;label for="exampleTextarea"&gt;Example textarea &lt;span class="text-danger"&gt;*&lt;/span&gt;&lt;/label&gt;
+                            &lt;textarea class="form-control" id="exampleTextarea" rows="3"&gt;&lt;/textarea&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="card-footer"&gt;
+                            &lt;button type="reset" class="btn btn-primary mr-2"&gt;Submit&lt;/button&gt;
+                            &lt;button type="reset" class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;/form&gt;
+                            &lt;!--end::Form--&gt;
+                            &lt;/div&gt;
+                            </code>
+                            </pre>
+                            </div>
+                        </div>
+                        <!--end: Code-->
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary mr-2" type="submit">Kaydet</button>
+                        <button type="reset" onClick="window.location.reload();" class="btn btn-secondary">İptal</button>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Card-->
+
+        </div>
+    </div>
+
+</div>
+<!--end::Content-->
+{% endblock %}
+
+{% block script %}
+<script src="/static/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
+<script src="/static/assets/js/city_district.js"></script>
+
+{{form.media}}
+<script>
+
+    $('#kt_datetimepicker_1').datetimepicker({
+                    format: 'DD/MM/YYYY',
+                    locale: 'tr'
+                });
+
+</script>
+<script type="text/javascript">
+    // django_select2 initialize
+    window.onerror = function (msg) {
+      $("body").attr("JSError", msg);
+    }
+
+</script>
+<!--<script src="/static/assets/js/sweetalert_init.js"></script>-->
+<!--<script src="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.js"></script>-->
+  {% endblock %}

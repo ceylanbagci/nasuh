@@ -1,0 +1,803 @@
+{% extends "home/base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<!--begin::Main-->
+
+
+<!--[html-partial:begin:{"id":"demo11/dist/inc/view/demos/pages/index","page":"index"}]/-->
+<!--[html-partial:begin:{"id":"demo1/dist/inc/view/partials/content/dashboards/demo11","page":"index"}]/-->
+<!--begin::Dashboard-->
+<!--[html-partial:begin:{"id":"demo1/dist/inc/view/partials/content/widgets/advance-tables/widget-5","page":"index"}]/-->
+
+<!--begin::Advance Table Widget 5-->
+<div class="card card-custom card-border gutter-b">
+
+<!--begin::Header-->
+<div class="card-header border-0 py-5">
+<h3 class="card-title align-items-start flex-column">
+<span class="card-label font-weight-bolder text-dark">Dava Dosyaları</span>
+<span class="text-muted mt-3 font-weight-bold font-size-sm">Toplam 231 Dosya</span>
+</h3>
+<div class="card-toolbar">
+<a href="#" class="btn btn-info font-weight-bolder font-size-sm">Yeni Dosya Oluştur</a>
+</div>
+</div>
+
+<!--end::Header-->
+
+<!--begin::Body-->
+<div class="card-body py-0">
+
+<!--begin::Table-->
+<div class="table-responsive">
+<table class="table table-head-custom table-vertical-center" id="kt_advance_table_widget_2">
+<thead>
+	<tr class="text-uppercase">
+		<th class="pl-0" style="width: 40px">
+			<label class="checkbox checkbox-lg checkbox-inline mr-2">
+				<input type="checkbox" value="1" />
+				<span></span>
+			</label>
+		</th>
+		<th class="pl-0" style="min-width: 100px">Dosya No</th>
+		<th style="min-width: 120px">Müvekkil</th>
+		<th style="min-width: 150px">
+			<span class="text-primary">Tarih</span>
+			<span class="svg-icon svg-icon-sm svg-icon-primary">
+
+				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Down-2.svg-->
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<polygon points="0 0 24 0 24 24 0 24" />
+						<rect fill="#000000" opacity="0.3" x="11" y="4" width="2" height="10" rx="1" />
+						<path d="M6.70710678,19.7071068 C6.31658249,20.0976311 5.68341751,20.0976311 5.29289322,19.7071068 C4.90236893,19.3165825 4.90236893,18.6834175 5.29289322,18.2928932 L11.2928932,12.2928932 C11.6714722,11.9143143 12.2810586,11.9010687 12.6757246,12.2628459 L18.6757246,17.7628459 C19.0828436,18.1360383 19.1103465,18.7686056 18.7371541,19.1757246 C18.3639617,19.5828436 17.7313944,19.6103465 17.3242754,19.2371541 L12.0300757,14.3841378 L6.70710678,19.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 15.999999) scale(1, -1) translate(-12.000003, -15.999999)" />
+					</g>
+				</svg>
+
+				<!--end::Svg Icon-->
+			</span>
+		</th>
+		<th style="min-width: 150px">Ortak</th>
+		<th style="min-width: 130px">Son Durum</th>
+		<th class="pr-0 text-right" style="min-width: 160px">Düzenle</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td class="pl-0 py-6">
+			<label class="checkbox checkbox-lg checkbox-inline">
+				<input type="checkbox" value="1" />
+				<span></span>
+			</label>
+		</td>
+		<td class="pl-0">
+			<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">56037-XDER</a>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Selim SAĞDIÇ</span>
+			<span class="text-muted font-weight-bold">Ankara</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">05/28/2020</span>
+			<span class="text-muted font-weight-bold">Duruşma</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Av.Suat SARI</span>
+			<span class="text-muted font-weight-bold">Toplam 3 Ortak</span>
+		</td>
+		<td>
+			<span class="label label-lg label-light-primary label-inline">Devam Ediyor</span>
+		</td>
+		<td class="pr-0 text-right">
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Settings-1.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" fill="#000000" />
+							<path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
+							<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
+							<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="pl-0 py-6">
+			<label class="checkbox checkbox-lg checkbox-inline">
+				<input type="checkbox" value="1" />
+				<span></span>
+			</label>
+		</td>
+		<td class="pl-0">
+			<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary font-size-lg">05822-FXSP</a>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Sıtkı SİNİR</span>
+			<span class="text-muted font-weight-bold">İstabul</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">02/04/2020</span>
+			<span class="text-muted font-weight-bold">Askıda</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">YOK</span>
+			<span class="text-muted font-weight-bold">YOK</span>
+		</td>
+		<td>
+			<span class="label label-lg label-light-warning label-inline">Ertelendi</span>
+		</td>
+		<td class="pr-0 text-right">
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Settings-1.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" fill="#000000" />
+							<path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
+							<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
+							<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="pl-0 py-6">
+			<label class="checkbox checkbox-lg checkbox-inline">
+				<input type="checkbox" value="1" />
+				<span></span>
+			</label>
+		</td>
+		<td class="pl-0">
+			<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary ont-size-lg">00347-BCLQ</a>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Sevim SARAN</span>
+			<span class="text-muted font-weight-bold">Bursa</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">23/12/2020</span>
+			<span class="text-muted font-weight-bold">Bitti</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Av.Devam Hukuk</span>
+			<span class="text-muted font-weight-bold">Toplam 4 Ortak</span>
+		</td>
+		<td>
+			<span class="label label-lg label-light-success label-inline">Kazandık</span>
+		</td>
+		<td class="pr-0 text-right">
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Settings-1.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" fill="#000000" />
+							<path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
+							<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
+							<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td class="pl-0 py-6">
+			<label class="checkbox checkbox-lg checkbox-inline">
+				<input type="checkbox" value="1" />
+				<span></span>
+			</label>
+		</td>
+		<td class="pl-0">
+			<a href="#" class="text-dark font-weight-bolder text-hover-primary font-size-lg">4472-QREX</a>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Soner Sorgun</span>
+			<span class="text-muted font-weight-bold">Manisa</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">17/09/2021</span>
+			<span class="text-muted font-weight-bold">Kapandı</span>
+		</td>
+		<td>
+			<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Devrim HUKUK</span>
+			<span class="text-muted font-weight-bold">Toplam 2 Ortak</span>
+		</td>
+		<td>
+			<span class="label label-lg label-light-danger label-inline">Kapandı</span>
+		</td>
+		<td class="pr-0 text-right">
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Settings-1.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M7,3 L17,3 C19.209139,3 21,4.790861 21,7 C21,9.209139 19.209139,11 17,11 L7,11 C4.790861,11 3,9.209139 3,7 C3,4.790861 4.790861,3 7,3 Z M7,9 C8.1045695,9 9,8.1045695 9,7 C9,5.8954305 8.1045695,5 7,5 C5.8954305,5 5,5.8954305 5,7 C5,8.1045695 5.8954305,9 7,9 Z" fill="#000000" />
+							<path d="M7,13 L17,13 C19.209139,13 21,14.790861 21,17 C21,19.209139 19.209139,21 17,21 L7,21 C4.790861,21 3,19.209139 3,17 C3,14.790861 4.790861,13 7,13 Z M17,19 C18.1045695,19 19,18.1045695 19,17 C19,15.8954305 18.1045695,15 17,15 C15.8954305,15 15,15.8954305 15,17 C15,18.1045695 15.8954305,19 17,19 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Write.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953)" />
+							<path d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+			<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
+				<span class="svg-icon svg-icon-md svg-icon-primary">
+
+					<!--begin::Svg Icon | path:assets/media/svg/icons/General/Trash.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24" />
+							<path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
+							<path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+						</g>
+					</svg>
+
+					<!--end::Svg Icon-->
+				</span>
+			</a>
+		</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<!--end::Table-->
+</div>
+
+<!--end::Body-->
+</div>
+
+<!--end::Advance Table Widget 5-->
+
+
+
+
+<!--begin::Row-->
+<div class="row">
+<div class="col-lg-6 col-xxl-4">
+<!--begin::List Widget 9-->
+<div class="card card-custom card-stretch gutter-b">
+<!--begin::Header-->
+<div class="card-header align-items-center border-0 mt-4">
+<h3 class="card-title align-items-start flex-column">
+	<span class="font-weight-bolder text-dark">Son Girişler</span>
+	<span class="text-muted mt-3 font-weight-bold font-size-sm">1.243 Hesap Hareketi</span>
+</h3>
+<div class="card-toolbar">
+	<div class="dropdown dropdown-inline">
+
+		<div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+			<!--begin::Navigation-->
+			<ul class="navi navi-hover">
+				<li class="navi-header font-weight-bold py-4">
+					<span class="font-size-lg">Choose Label:</span>
+					<i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="" data-original-title="Click to learn more..."></i>
+				</li>
+				<li class="navi-separator mb-3 opacity-70"></li>
+				<li class="navi-item">
+					<a href="#" class="navi-link">
+						<span class="navi-text">
+							<span class="label label-xl label-inline label-light-success">Customer</span>
+						</span>
+					</a>
+				</li>
+				<li class="navi-item">
+					<a href="#" class="navi-link">
+						<span class="navi-text">
+							<span class="label label-xl label-inline label-light-danger">Partner</span>
+						</span>
+					</a>
+				</li>
+				<li class="navi-item">
+					<a href="#" class="navi-link">
+						<span class="navi-text">
+							<span class="label label-xl label-inline label-light-warning">Suplier</span>
+						</span>
+					</a>
+				</li>
+				<li class="navi-item">
+					<a href="#" class="navi-link">
+						<span class="navi-text">
+							<span class="label label-xl label-inline label-light-primary">Member</span>
+						</span>
+					</a>
+				</li>
+				<li class="navi-item">
+					<a href="#" class="navi-link">
+						<span class="navi-text">
+							<span class="label label-xl label-inline label-light-dark">Staff</span>
+						</span>
+					</a>
+				</li>
+				<li class="navi-separator mt-3 opacity-70"></li>
+				<li class="navi-footer py-4">
+					<a class="btn btn-clean font-weight-bold btn-sm" href="#">
+					<i class="ki ki-plus icon-sm"></i>Add new</a>
+				</li>
+			</ul>
+			<!--end::Navigation-->
+		</div>
+	</div>
+</div>
+</div>
+<!--end::Header-->
+<!--begin::Body-->
+<div class="card-body pt-4">
+<!--begin::Timeline-->
+<div class="timeline timeline-6 mt-3">
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">08:42</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-warning icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Text-->
+		<div class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">Tazminat geliri girildi</div>
+		<!--end::Text-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">10:00</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-success icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Content-->
+		<div class="timeline-content d-flex">
+			<span class="font-weight-bolder text-dark-75 pl-3 font-size-lg">SSK Ödemesi</span>
+		</div>
+		<!--end::Content-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">13:30</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-danger icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Desc-->
+		<div class="timeline-content font-weight-bolder font-size-lg text-dark-75 pl-3">Dava dosyasından gelen
+		<a href="#" class="text-primary">$ 700</a></div>
+		<!--end::Desc-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">16:50</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-primary icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Text-->
+		<div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Ortaklara Gönderilen</div>
+		<!--end::Text-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">21:03</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-danger icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Desc-->
+		<div class="timeline-content font-weight-bolder text-dark-75 pl-3 font-size-lg">Dosya Oluşturuldu
+		<a href="#" class="text-primary">ID: XF-2356</a>.</div>
+		<!--end::Desc-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">23:07</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-info icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Text-->
+		<div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Dava Dosyası Kapandı</div>
+		<!--end::Text-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">16:50</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-primary icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Text-->
+		<div class="timeline-content font-weight-mormal font-size-lg text-muted pl-3">Müvekkil Davadan çekili</div>
+		<!--end::Text-->
+	</div>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<div class="timeline-item align-items-start">
+		<!--begin::Label-->
+		<div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">21:03</div>
+		<!--end::Label-->
+		<!--begin::Badge-->
+		<div class="timeline-badge">
+			<i class="fa fa-genderless text-danger icon-xl"></i>
+		</div>
+		<!--end::Badge-->
+		<!--begin::Desc-->
+		<div class="timeline-content font-weight-bolder font-size-lg text-dark-75 pl-3">Dosya Açıldı
+		<a href="#" class="text-primary">#XF-2356</a>.</div>
+		<!--end::Desc-->
+	</div>
+	<!--end::Item-->
+</div>
+<!--end::Timeline-->
+</div>
+<!--end: Card Body-->
+</div>
+<!--end: List Widget 9-->
+</div>
+<div class="col-lg-8">
+<!--begin::Advance Table Widget 4-->
+<div class="card card-custom card-stretch gutter-b">
+<!--begin::Header-->
+<div class="card-header border-0 py-5">
+<h3 class="card-title align-items-start flex-column">
+	<span class="card-label font-weight-bolder text-dark">Son Hesap Hareketleri</span>
+	<span class="text-muted mt-3 font-weight-bold font-size-sm">Toplam 5400+ Hareket</span>
+</h3>
+<div class="card-toolbar">
+	<a href="#" class="btn btn-info font-weight-bolder font-size-sm mr-3">Yeni Hesap Hareketi Oluştur</a>
+</div>
+</div>
+<!--end::Header-->
+<!--begin::Body-->
+<div class="card-body pt-0 pb-3">
+<div class="tab-content">
+	<!--begin::Table-->
+	<div class="table-responsive">
+		<table class="table table-head-custom table-head-bg table-borderless table-vertical-center">
+			<thead>
+				<tr class="text-left text-uppercase">
+					<th style="min-width: 250px" class="pl-7">
+						<span class="text-dark-75">Türü</span>
+					</th>
+					<th style="min-width: 100px">Gelir</th>
+					<th style="min-width: 100px">Gider</th>
+					<th style="min-width: 100px">Açıklama</th>
+					<th style="min-width: 80px">Düzenle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="pl-0 py-8">
+						<div class="d-flex align-items-center">
+							<div class="symbol symbol-50 symbol-light mr-4">
+								<span class="symbol-label">
+									<img src="/static/assets/media/svg/avatars/001-boy.svg" class="h-75 align-self-end" alt="">
+								</span>
+							</div>
+							<div>
+								<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Tazminat Davası</a>
+								<span class="text-muted font-weight-bold d-block">3 Ortaklı Sinem Sürü</span>
+							</div>
+						</div>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">12000₺</span>
+						<span class="text-muted font-weight-bold">Ödendi</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">1200₺</span>
+						<span class="text-muted font-weight-bold">Ödemesi   Yapıldı</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">3.Asliye</span>
+						<span class="text-muted font-weight-bold">Adam Yaralama</span>
+					</td>
+					<td class="pr-0 text-right">
+						<a href="#" class="btn btn-light-success font-weight-bolder font-size-sm">Görüntüle</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl-0 py-0">
+						<div class="d-flex align-items-center">
+							<div class="symbol symbol-50 symbol-light mr-4">
+								<span class="symbol-label">
+									<img src="/static/assets/media/svg/avatars/018-girl-9.svg" class="h-75 align-self-end" alt="">
+								</span>
+							</div>
+							<div>
+								<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Suzan Siyah</a>
+								<span class="text-muted font-weight-bold d-block">Ortak Yok </span>
+							</div>
+						</div>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">10.000₺</span>
+						<span class="text-muted font-weight-bold">Pending</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">200₺</span>
+						<span class="text-muted font-weight-bold">Rejected</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Yemek</span>
+						<span class="text-muted font-weight-bold">Yemek</span>
+					</td>
+					<td class="pr-0 text-right">
+						<a href="#" class="btn btn-light-success font-weight-bolder font-size-sm">Görüntüle</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl-0 py-8">
+						<div class="d-flex align-items-center">
+							<div class="symbol symbol-50 symbol-light mr-4">
+								<span class="symbol-label">
+									<img src="/static/assets/media/svg/avatars/047-girl-25.svg" class="h-75 align-self-end" alt="">
+								</span>
+							</div>
+							<div>
+								<a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">Sadri SÜZEN</a>
+								<span class="text-muted font-weight-bold d-block">2 Ortaklı</span>
+							</div>
+						</div>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">27.000₺</span>
+						<span class="text-muted font-weight-bold">Elden</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">3200₺</span>
+						<span class="text-muted font-weight-bold">Ortağa Gönderildi</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Nerede</span>
+						<span class="text-muted font-weight-bold">Kaldı</span>
+					</td>
+
+					<td class="pr-0 text-right">
+						<a href="#" class="btn btn-light-success font-weight-bolder font-size-sm">Görüntüle</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="pl-0 py-0">
+						<div class="d-flex align-items-center">
+							<div class="symbol symbol-50 symbol-light mr-4">
+								<span class="symbol-label">
+									<img src="/static/assets/media/svg/avatars/014-girl-7.svg" class="h-75 align-self-end" alt="">
+								</span>
+							</div>
+							<div>
+								<a href="#" class="text-dark font-weight-bolder text-hover-primary mb-1 font-size-lg">Vekalet Geliri</a>
+								<span class="text-muted font-weight-bold d-block">Selami SAYAN</span>
+							</div>
+						</div>
+					</td>
+					<td class="text-left pr-0">
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">26.900₺</span>
+						<span class="text-muted font-weight-bold">Elden</span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
+						<span class="text-muted font-weight-bold"></span>
+					</td>
+					<td>
+						<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Selami Vekalet</span>
+						<span class="text-muted font-weight-bold"></span>
+					</td>
+					<td class="pr-0 text-right">
+						<a href="#" class="btn btn-light-success font-weight-bolder font-size-sm" style="width: 7rem">Görüntüle</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--end::Table-->
+</div>
+</div>
+<!--end::Body-->
+</div>
+<!--end::Advance Table Widget 4-->
+</div>
+
+</div>
+
+<!--end::Row-->
+
+<!--begin::Row-->
+<div class="row">
+<div class="col-xl-4">
+<!--begin::Mixed Widget 5-->
+<div class="card card-custom bg-radial-gradient-primary gutter-b card-stretch">
+<!--begin::Header-->
+<div class="card-header border-0 py-5">
+<h3 class="card-title font-weight-bolder text-white">Son 7 Gün</h3>
+<div class="card-toolbar">
+
+</div>
+</div>
+<!--end::Header-->
+<!--begin::Body-->
+<div class="card-body d-flex flex-column p-0" style="position: relative;">
+<!--begin::Chart-->
+<div id="kt_mixed_widget_5_chart" style="height: 200px; min-height: 200px;"><div id="apexchartsgcwmbplm" class="apexcharts-canvas apexchartsgcwmbplm apexcharts-theme-light" style="width: 343px; height: 200px;"><svg id="SvgjsSvg1006" width="343" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1008" class="apexcharts-inner apexcharts-graphical" transform="translate(20, 0)"><defs id="SvgjsDefs1007"><linearGradient id="SvgjsLinearGradient1011" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1012" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop1013" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop1014" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></linearGradient><clipPath id="gridRectMaskgcwmbplm"><rect id="SvgjsRect1016" width="308" height="201" x="-2.5" y="-0.5" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="gridRectMarkerMaskgcwmbplm"><rect id="SvgjsRect1017" width="307" height="204" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath></defs><rect id="SvgjsRect1015" width="6.492857142857142" height="200" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke-dasharray="3" fill="url(#SvgjsLinearGradient1011)" class="apexcharts-xcrosshairs" y2="200" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG1037" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1038" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1046" class="apexcharts-grid"><g id="SvgjsG1047" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine1049" x1="0" y1="0" x2="303" y2="0" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1050" x1="0" y1="20" x2="303" y2="20" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1051" x1="0" y1="40" x2="303" y2="40" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1052" x1="0" y1="60" x2="303" y2="60" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1053" x1="0" y1="80" x2="303" y2="80" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1054" x1="0" y1="100" x2="303" y2="100" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1055" x1="0" y1="120" x2="303" y2="120" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1056" x1="0" y1="140" x2="303" y2="140" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1057" x1="0" y1="160" x2="303" y2="160" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1058" x1="0" y1="180" x2="303" y2="180" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line><line id="SvgjsLine1059" x1="0" y1="200" x2="303" y2="200" stroke="#ecf0f3" stroke-dasharray="4" class="apexcharts-gridline"></line></g><g id="SvgjsG1048" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine1061" x1="0" y1="200" x2="303" y2="200" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1060" x1="0" y1="1" x2="0" y2="200" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1018" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG1019" class="apexcharts-series" rel="1" seriesName="NetxProfit" data:realIndex="0"><path id="SvgjsPath1021" d="M15.15 200L15.15 130L20.642857142857142 130L20.642857142857142 130L20.642857142857142 200L20.642857142857142 200C20.642857142857142 200 15.15 200 15.15 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 15.15 200L 15.15 130L 20.642857142857142 130L 20.642857142857142 130L 20.642857142857142 200L 20.642857142857142 200z" pathFrom="M 15.15 200L 15.15 200L 20.642857142857142 200L 20.642857142857142 200L 20.642857142857142 200L 15.15 200" cy="130" cx="57.93571428571428" j="0" val="35" barHeight="70" barWidth="6.492857142857142"></path><path id="SvgjsPath1022" d="M58.43571428571428 200L58.43571428571428 70L63.92857142857143 70L63.92857142857143 70L63.92857142857143 200L63.92857142857143 200C63.92857142857143 200 58.43571428571428 200 58.43571428571428 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 58.43571428571428 200L 58.43571428571428 70L 63.92857142857143 70L 63.92857142857143 70L 63.92857142857143 200L 63.92857142857143 200z" pathFrom="M 58.43571428571428 200L 58.43571428571428 200L 63.92857142857143 200L 63.92857142857143 200L 63.92857142857143 200L 58.43571428571428 200" cy="70" cx="101.22142857142856" j="1" val="65" barHeight="130" barWidth="6.492857142857142"></path><path id="SvgjsPath1023" d="M101.72142857142856 200L101.72142857142856 50L107.21428571428571 50L107.21428571428571 50L107.21428571428571 200L107.21428571428571 200C107.21428571428571 200 101.72142857142856 200 101.72142857142856 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 101.72142857142856 200L 101.72142857142856 50L 107.21428571428571 50L 107.21428571428571 50L 107.21428571428571 200L 107.21428571428571 200z" pathFrom="M 101.72142857142856 200L 101.72142857142856 200L 107.21428571428571 200L 107.21428571428571 200L 107.21428571428571 200L 101.72142857142856 200" cy="50" cx="144.50714285714284" j="2" val="75" barHeight="150" barWidth="6.492857142857142"></path><path id="SvgjsPath1024" d="M145.00714285714284 200L145.00714285714284 90L150.49999999999997 90L150.49999999999997 90L150.49999999999997 200L150.49999999999997 200C150.49999999999997 200 145.00714285714284 200 145.00714285714284 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 145.00714285714284 200L 145.00714285714284 90L 150.49999999999997 90L 150.49999999999997 90L 150.49999999999997 200L 150.49999999999997 200z" pathFrom="M 145.00714285714284 200L 145.00714285714284 200L 150.49999999999997 200L 150.49999999999997 200L 150.49999999999997 200L 145.00714285714284 200" cy="90" cx="187.79285714285712" j="3" val="55" barHeight="110" barWidth="6.492857142857142"></path><path id="SvgjsPath1025" d="M188.29285714285712 200L188.29285714285712 110L193.78571428571425 110L193.78571428571425 110L193.78571428571425 200L193.78571428571425 200C193.78571428571425 200 188.29285714285712 200 188.29285714285712 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 188.29285714285712 200L 188.29285714285712 110L 193.78571428571425 110L 193.78571428571425 110L 193.78571428571425 200L 193.78571428571425 200z" pathFrom="M 188.29285714285712 200L 188.29285714285712 200L 193.78571428571425 200L 193.78571428571425 200L 193.78571428571425 200L 188.29285714285712 200" cy="110" cx="231.0785714285714" j="4" val="45" barHeight="90" barWidth="6.492857142857142"></path><path id="SvgjsPath1026" d="M231.5785714285714 200L231.5785714285714 80L237.07142857142853 80L237.07142857142853 80L237.07142857142853 200L237.07142857142853 200C237.07142857142853 200 231.5785714285714 200 231.5785714285714 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 231.5785714285714 200L 231.5785714285714 80L 237.07142857142853 80L 237.07142857142853 80L 237.07142857142853 200L 237.07142857142853 200z" pathFrom="M 231.5785714285714 200L 231.5785714285714 200L 237.07142857142853 200L 237.07142857142853 200L 237.07142857142853 200L 231.5785714285714 200" cy="80" cx="274.3642857142857" j="5" val="60" barHeight="120" barWidth="6.492857142857142"></path><path id="SvgjsPath1027" d="M274.8642857142857 200L274.8642857142857 90L280.35714285714283 90L280.35714285714283 90L280.35714285714283 200L280.35714285714283 200C280.35714285714283 200 274.8642857142857 200 274.8642857142857 200 " fill="rgba(255,255,255,0.25)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 274.8642857142857 200L 274.8642857142857 90L 280.35714285714283 90L 280.35714285714283 90L 280.35714285714283 200L 280.35714285714283 200z" pathFrom="M 274.8642857142857 200L 274.8642857142857 200L 280.35714285714283 200L 280.35714285714283 200L 280.35714285714283 200L 274.8642857142857 200" cy="90" cx="317.65" j="6" val="55" barHeight="110" barWidth="6.492857142857142"></path></g><g id="SvgjsG1028" class="apexcharts-series" rel="2" seriesName="Revenue" data:realIndex="1"><path id="SvgjsPath1030" d="M21.642857142857142 200L21.642857142857142 120L27.135714285714286 120L27.135714285714286 120L27.135714285714286 200L27.135714285714286 200C27.135714285714286 200 21.642857142857142 200 21.642857142857142 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 21.642857142857142 200L 21.642857142857142 120L 27.135714285714286 120L 27.135714285714286 120L 27.135714285714286 200L 27.135714285714286 200z" pathFrom="M 21.642857142857142 200L 21.642857142857142 200L 27.135714285714286 200L 27.135714285714286 200L 27.135714285714286 200L 21.642857142857142 200" cy="120" cx="64.42857142857143" j="0" val="40" barHeight="80" barWidth="6.492857142857142"></path><path id="SvgjsPath1031" d="M64.92857142857143 200L64.92857142857143 60L70.42142857142858 60L70.42142857142858 60L70.42142857142858 200L70.42142857142858 200C70.42142857142858 200 64.92857142857143 200 64.92857142857143 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 64.92857142857143 200L 64.92857142857143 60L 70.42142857142858 60L 70.42142857142858 60L 70.42142857142858 200L 70.42142857142858 200z" pathFrom="M 64.92857142857143 200L 64.92857142857143 200L 70.42142857142858 200L 70.42142857142858 200L 70.42142857142858 200L 64.92857142857143 200" cy="60" cx="107.71428571428571" j="1" val="70" barHeight="140" barWidth="6.492857142857142"></path><path id="SvgjsPath1032" d="M108.21428571428571 200L108.21428571428571 40L113.70714285714286 40L113.70714285714286 40L113.70714285714286 200L113.70714285714286 200C113.70714285714286 200 108.21428571428571 200 108.21428571428571 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 108.21428571428571 200L 108.21428571428571 40L 113.70714285714286 40L 113.70714285714286 40L 113.70714285714286 200L 113.70714285714286 200z" pathFrom="M 108.21428571428571 200L 108.21428571428571 200L 113.70714285714286 200L 113.70714285714286 200L 113.70714285714286 200L 108.21428571428571 200" cy="40" cx="150.99999999999997" j="2" val="80" barHeight="160" barWidth="6.492857142857142"></path><path id="SvgjsPath1033" d="M151.49999999999997 200L151.49999999999997 80L156.9928571428571 80L156.9928571428571 80L156.9928571428571 200L156.9928571428571 200C156.9928571428571 200 151.49999999999997 200 151.49999999999997 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 151.49999999999997 200L 151.49999999999997 80L 156.9928571428571 80L 156.9928571428571 80L 156.9928571428571 200L 156.9928571428571 200z" pathFrom="M 151.49999999999997 200L 151.49999999999997 200L 156.9928571428571 200L 156.9928571428571 200L 156.9928571428571 200L 151.49999999999997 200" cy="80" cx="194.28571428571425" j="3" val="60" barHeight="120" barWidth="6.492857142857142"></path><path id="SvgjsPath1034" d="M194.78571428571425 200L194.78571428571425 100L200.27857142857138 100L200.27857142857138 100L200.27857142857138 200L200.27857142857138 200C200.27857142857138 200 194.78571428571425 200 194.78571428571425 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 194.78571428571425 200L 194.78571428571425 100L 200.27857142857138 100L 200.27857142857138 100L 200.27857142857138 200L 200.27857142857138 200z" pathFrom="M 194.78571428571425 200L 194.78571428571425 200L 200.27857142857138 200L 200.27857142857138 200L 200.27857142857138 200L 194.78571428571425 200" cy="100" cx="237.57142857142853" j="4" val="50" barHeight="100" barWidth="6.492857142857142"></path><path id="SvgjsPath1035" d="M238.07142857142853 200L238.07142857142853 70L243.56428571428566 70L243.56428571428566 70L243.56428571428566 200L243.56428571428566 200C243.56428571428566 200 238.07142857142853 200 238.07142857142853 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 238.07142857142853 200L 238.07142857142853 70L 243.56428571428566 70L 243.56428571428566 70L 243.56428571428566 200L 243.56428571428566 200z" pathFrom="M 238.07142857142853 200L 238.07142857142853 200L 243.56428571428566 200L 243.56428571428566 200L 243.56428571428566 200L 238.07142857142853 200" cy="70" cx="280.85714285714283" j="5" val="65" barHeight="130" barWidth="6.492857142857142"></path><path id="SvgjsPath1036" d="M281.35714285714283 200L281.35714285714283 80L286.84999999999997 80L286.84999999999997 80L286.84999999999997 200L286.84999999999997 200C286.84999999999997 200 281.35714285714283 200 281.35714285714283 200 " fill="rgba(255,255,255,1)" fill-opacity="1" stroke="transparent" stroke-opacity="1" stroke-linecap="square" stroke-width="1" stroke-dasharray="0" class="apexcharts-bar-area" index="1" clip-path="url(#gridRectMaskgcwmbplm)" pathTo="M 281.35714285714283 200L 281.35714285714283 80L 286.84999999999997 80L 286.84999999999997 80L 286.84999999999997 200L 286.84999999999997 200z" pathFrom="M 281.35714285714283 200L 281.35714285714283 200L 286.84999999999997 200L 286.84999999999997 200L 286.84999999999997 200L 281.35714285714283 200" cy="80" cx="324.1428571428571" j="6" val="60" barHeight="120" barWidth="6.492857142857142"></path></g><g id="SvgjsG1020" class="apexcharts-datalabels" data:realIndex="0"></g><g id="SvgjsG1029" class="apexcharts-datalabels" data:realIndex="1"></g></g><line id="SvgjsLine1062" x1="0" y1="0" x2="303" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1063" x1="0" y1="0" x2="303" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1064" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1065" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1066" class="apexcharts-point-annotations"></g></g><g id="SvgjsG1045" class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g id="SvgjsG1009" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 100px;"></div><div class="apexcharts-tooltip apexcharts-theme-light"><div class="apexcharts-tooltip-title" style="font-family: Poppins; font-size: 12px;"></div><div class="apexcharts-tooltip-series-group" style="order: 1;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(255, 255, 255);"></span><div class="apexcharts-tooltip-text" style="font-family: Poppins; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div><div class="apexcharts-tooltip-series-group" style="order: 2;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(255, 255, 255);"></span><div class="apexcharts-tooltip-text" style="font-family: Poppins; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span class="apexcharts-tooltip-text-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
+<!--end::Chart-->
+<!--begin::Stats-->
+<div class="card-spacer bg-white card-rounded flex-grow-1">
+	<!--begin::Row-->
+	<div class="row m-0">
+		<div class="col px-8 py-6 mr-8">
+			<div class="font-size-sm text-muted font-weight-bold">Gelir</div>
+			<div class="font-size-h4 font-weight-bolder">45.000</div>
+		</div>
+		<div class="col px-8 py-6">
+			<div class="font-size-sm text-muted font-weight-bold">Gider</div>
+			<div class="font-size-h4 font-weight-bolder">18.000</div>
+		</div>
+	</div>
+	<!--end::Row-->
+
+</div>
+<!--end::Stats-->
+<div class="resize-triggers"><div class="expand-trigger"><div style="width: 344px; height: 520px;"></div></div><div class="contract-trigger"></div></div></div>
+<!--end::Body-->
+</div>
+<!--end::Mixed Widget 5-->
+</div>
+
+
+</div>
+
+<!--end::Row-->
+
+<!--end::Dashboard-->
+
+<!--[html-partial:end:{"id":"demo1/dist/inc/view/partials/content/dashboards/demo11","page":"index"}]/-->
+
+
+{% endblock %}
+		<!--end::Main-->
+{% block script %}
+{% endblock %}
