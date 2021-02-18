@@ -1,9 +1,7 @@
 
 function labelStyle(){
-console.log('girdi');
 var element = $('#btn-styled')
  var value = $('#btn-styled').data('id');
- console.log(value);
     if ( value == '1') {
             element.addClass('btn-light-success');
         }else if ( value == '2') {

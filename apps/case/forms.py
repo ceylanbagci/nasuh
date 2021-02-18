@@ -2,8 +2,10 @@ from django import forms
 from .models import *
 from core.forms import BaseForm
 from django_select2 import forms as s2forms
-from django.contrib.admin.widgets import FilteredSelectMultiple
 from core.models import District
+from case.models import Partnership
+import core.custom_messages as custom_messages
+import core.helper as hlp
 
 class CaseForm(BaseForm,forms.ModelForm):
 
@@ -75,19 +77,33 @@ class PartnerForm(BaseForm,forms.ModelForm):
         else:
             self.fields["district"].choices = District.objects.filter(city=instance.city).values_list('id', 'name')
 
-
-class ExpenseForm(BaseForm,forms.ModelForm):
+class ShareForm(BaseForm,forms.ModelForm):
 
     class Meta:
-        model = Expense
+        model = Partnership
         fields = "__all__"
-        exclude = ("created_at","slug")
-        widgets = {
-            "description": forms.Textarea(attrs={"rows": 2}),
-        }
+        exclude = ("created_at",)
+
 
     def __init__(self, *args, **kwargs):
-        super(ExpenseForm, self).__init__(*args, **kwargs)
-        self.fields['case'].required = False
+        super(ShareForm, self).__init__(*args, **kwargs)
+        initial = kwargs.get("initial")
+        self.fields["partner"].initial = initial['partner']
+        self.fields['case'].initial = initial['case']
+
+    def clean_share(self):
+        share = self.cleaned_data['share']
+        if share < 1 or share > 100:
+            raise forms.ValidationError(
+                "1 ile 100 arasında bir değer girilmelidir."
+            )
+        return share
 
 
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        case = self.cleaned_data['case']
+        partner = self.cleaned_data['partner']
+        if hlp.get_or_none(Partnership, case=case, partner=partner):
+            raise forms.ValidationError('Bu ortak ve dava dosyası ile ilgili bir kayıt var.')
+        return cleaned_data

@@ -1,0 +1,127 @@
+{% extends "home/base.html" %}
+{% load humanize %}
+
+{% block head %}
+{{form.media}}
+		<!--<link rel="shortcut icon" href="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.css" />-->
+{% endblock %}
+
+{% block content %}
+<!--end::Subheader-->
+<div class="content flex-column-fluid" id="kt_content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Tarihlere Göre Rapor Al</h3>
+
+                </div>
+                <div class="row">
+                    <!--begin::Form-->
+                        <form action="/report/get_with_day" class='col-lg-4' method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                     <div class="form-group">
+                                <label>Güne Göre</label>
+                                <div class="input-group date" id="kt_datetimepicker_1" data-target-input="nearest">
+                                    <input type="date" name="date" class="form-control datetimepicker-input">
+                                    <div class="input-group-append" data-target="#kt_datetimepicker_1" data-toggle="datetimepicker">
+                                        <span class="input-group-text">
+                                         <i class="ki ki-calendar"></i>
+                                        </span>
+                                   </div>
+                                  </div>
+                            </div>
+                                </div>
+                                <div class="col-lg-1" style="display:flex;">
+                                    <button class="btn btn-primary mr-2" type="submit" style="margin:auto;">Getir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                    <!--begin::Form-->
+                        <form action="/report/get_with_month" class='col-lg-4' method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                     <div class="form-group">
+                                <label>Aya Göre</label>
+                                <div class="input-group date" id="kt_datetimepicker_2" data-target-input="nearest">
+                                    <input type="date" name="date" class="form-control datetimepicker-input">
+                                    <div class="input-group-append" data-target="#kt_datetimepicker_2" data-toggle="datetimepicker">
+                                        <span class="input-group-text">
+                                         <i class="ki ki-calendar"></i>
+                                        </span>
+                                   </div>
+                                  </div>
+                            </div>
+                                </div>
+                                <div class="col-lg-1" style="display:flex;">
+                                    <button class="btn btn-primary mr-2" type="submit" style="margin:auto;">Getir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                    <!--begin::Form-->
+                        <form action="/report/get_with_year" class='col-lg-4' method="post" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                     <div class="form-group">
+                                <label>Yıla Göre</label>
+                                <div class="input-group date" id="kt_datetimepicker_3" data-target-input="nearest">
+                                    <input type="date" name="date" class="form-control datetimepicker-input">
+                                    <div class="input-group-append" data-target="#kt_datetimepicker_3" data-toggle="datetimepicker">
+                                        <span class="input-group-text">
+                                         <i class="ki ki-calendar"></i>
+                                        </span>
+                                   </div>
+                                  </div>
+                            </div>
+                                </div>
+                                <div class="col-lg-1" style="display:flex;">
+                                    <button class="btn btn-primary mr-2" type="submit" style="margin:auto;">Getir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                </div>
+            </div>
+            <!--end::Card-->
+
+        </div>
+    </div>
+
+</div>
+<!--end::Content-->
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+        $(function () {
+            $('#kt_datetimepicker_1').datetimepicker({
+                locale: 'tr',
+                format: 'DD/MM/YYYY'
+            });
+            $('#kt_datetimepicker_2').datetimepicker({
+                locale: 'tr',
+                viewMode: 'months',
+                format: 'MM/YYYY'
+            });
+            $('#kt_datetimepicker_3').datetimepicker({
+                locale: 'tr',
+                viewMode: 'years',
+                format: 'YYYY'
+            });
+        });
+    </script>
+  {% endblock %}

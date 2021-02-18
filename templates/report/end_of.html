@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% load humanize %}
+<body>
+
+<h2>{{results.title}} {{results.date}}</h2>
+
+<table>
+  <tr>
+    <th>Tarih</th>
+    <th>Gelir-Gider Türü</th>
+    <th>Açıklama</th>
+    <th style="text-align: right;">Miktar</th>
+  </tr>
+	{%for trans in results.qs%}
+  <tr>
+    <td>{{trans.date|date:'d.m.Y'}}</td>
+    <td>{{trans.expense.title}}</td>
+    <td>
+		{%if trans.case%}
+		Dosya:{{trans.case.title}}
+		{%endif%}
+
+		{%if trans.employee%}
+		{{trans.employee.full_name}}
+		{%endif%}
+		{{trans.expense.office.title}}
+		{{trans.expense.tax.title}}
+		{{trans.expense.other.title}}
+	</td>
+	<td style="text-align: right;">
+		{%if trans.amount < 0%}
+		<span style="color:red;">{{trans.amount|intcomma}}</span>
+		{%else%}
+		<span>{{trans.amount|intcomma}}</span>
+		{%endif%}
+	</td>
+  </tr>
+  {%endfor%}
+	<td>Toplam:</td>
+	<td>{{results.date}}</td>
+	<td>Gelir: {{results.income.sum|intcomma}}₺</td>
+	<td style="color:red;">Gider: {{results.spent.sum|intcomma}}₺</td>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% load humanize %}
+<div class="content flex-column-fluid" id="kt_content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Gün Sonu {% now "j F Y" %}</h3>
+                </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <!--begin::Advance Table Widget 3-->
+                            <div class="card card-custom card-stretch gutter-b">
+                                <!--begin::Header-->
+                                <!--end::Header-->
+                                <!--begin::Body-->
+                                    <div class="card-body pt-0 pb-3">
+                                        <!--begin::Table-->
+                                        <div class="table-responsive">
+                                            <table class="table table-head-custom table-head-bg table-borderless table-vertical-center">
+                                                <thead>
+                                                    <tr class="text-uppercase">
+                                                        <th class="pl-7">
+                                                            <span>Gelir Gider Türü</span>
+                                                        </th>
+                                                        <th >Gelir</th>
+                                                        <th >Gider</th>
+                                                        <th >Tarih</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                        {%for trans in results%}
+                                        <tr>
+                                            <td>
+                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{trans.expense.title}}</span>
+                                                <span class="text-muted font-weight-bold">{{trans.expense.description}}</span>
+                                            </td>
+                                            <td>
+                                                {%if trans.type == 1%}
+                                                <span class="label label-lg label-light-success label-inline font-weight-bolder">{{trans.amount|intcomma}}₺</span>
+                                                {%endif%}
+                                            </td>
+                                            <td>
+                                                {%if trans.type == 2%}
+                                                <span class="label label-lg label-light-danger label-inline font-weight-bolder">{{trans.amount|intcomma}}₺</span>
+                                                {%endif%}
+                                            </td>
+                                            <td>
+                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{trans.date}}</span>
+                                                <span class="text-muted font-weight-bold">{{trans.description}}</span>
+                                            </td>
+
+                                        </tr>
+                                        {%endfor%}
+                                        <div class="separator separator-solid my-7"></div>
+                                        <tr>
+                                            <td>
+                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg">Toplam</span>
+                                                <span class="text-muted font-weight-bold"></span>
+                                            </td>
+                                            <td>
+                                                <span class="label label-lg label-light-success label-inline">{{tax.get_stats.total_income}} ₺</span>
+                                            </td>
+                                            <td>
+                                                <span class="label label-lg label-light-danger  label-inline">{{tax.get_stats.total_spent}} ₺</span>
+                                                <span class="text-muted font-weight-bold"></span>
+                                            </td>
+                                            <td>
+                                                <span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
+                                                <span class="text-muted font-weight-bold"></span>
+                                            </td>
+
+                                            <td class="text-right pr-0">
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                        </table>
+
+                                        </div>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Body-->
+                            </div>
+                            <!--end::Advance Table Widget 3-->
+                        </div>
+                        </div>
+                    </div>
+                    <!--end::Card-->
+
+            </div>
+        </div>
+
+    </div>
+</div>

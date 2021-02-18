@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% load humanize %}
 
 {% block head %}
 {{form.media}}
@@ -35,7 +36,7 @@
                                 <ul class="navi flex-column navi-hover py-2">
                                     <li class="navi-header font-weight-bolder font-size-sm text-primary pb-2">Birini Seçiniz:</li>
                                     <li class="navi-item">
-                                        <a href="#" class="navi-link">
+                                        <a href="/report/get_case_list_report" class="navi-link">
                                             <span class="navi-icon">
                                                 <i class="la la-print"></i>
                                             </span>
@@ -43,31 +44,7 @@
                                         </a>
                                     </li>
                                     <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-copy"></i>
-                                            </span>
-                                            <span class="navi-text">Kopyala</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-file-excel-o"></i>
-                                            </span>
-                                            <span class="navi-text">Excel</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-file-text-o"></i>
-                                            </span>
-                                            <span class="navi-text">CSV</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
+                                        <a href="/report/get_case_list_report" class="navi-link">
                                             <span class="navi-icon">
                                                 <i class="la la-file-pdf-o"></i>
                                             </span>

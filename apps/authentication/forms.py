@@ -10,12 +10,14 @@ class SignUpForm(BaseForm,UserCreationForm):
     error_css_class = 'is_invalid'
     class Meta:
         model = User
-        fields = ("user_type", "email", "password1", "password2")
+        fields = ("first_name", "last_name", "user_type", "email", "password1", "password2")
 
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
         self.fields["user_type"].widget = forms.HiddenInput()
+        for visible in self.visible_fields():
+            visible.field.widget.attrs["class"] += " form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6"
 
     def clean_email(self):
         email = self.cleaned_data["email"]
@@ -31,9 +33,20 @@ class LoginForm(BaseForm,AuthenticationForm):
         model = User
         fields = ("username","password",)
 
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs["class"] += " form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6"
+
 
 class ForgotPasswordForm(BaseForm, PasswordResetForm):
     email = forms.EmailField(max_length=254,widget=forms.TextInput(attrs={"placeholder":"Kayıtlı E-Posta Adresinizi girin"}))
+
+    def __init__(self, *args, **kwargs):
+        super(ForgotPasswordForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs["class"] += " form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6"
+
 
     def clean_email(self):
         email = self.cleaned_data["email"]
@@ -51,6 +64,9 @@ class PasswordRecoveryForm(BaseForm,SetPasswordForm):
     def __init__(self,*args, **kwargs):
         super(PasswordRecoveryForm, self).__init__(*args, **kwargs)
         self.user = kwargs.get("user")
+        for visible in self.visible_fields():
+            visible.field.widget.attrs["class"] += " form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6"
+
 
 class UpdatePasswordForm(BaseForm,PasswordChangeForm):
     def __init__(self,*args, **kwargs):

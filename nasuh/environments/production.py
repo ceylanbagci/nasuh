@@ -27,7 +27,7 @@ sys.path.insert(1, os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = '0z$v3um7a0s^&t*7qyng3_x+)rhoi5*%=ul!y9dy#%7hr!_#&9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,6 +47,12 @@ INSTALLED_APPS = [
     'home',
     'core',
     'case',
+    'office',
+    'tax',
+    'other',
+    'expense',
+    'transactions',
+    'report',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTHENTICATION_BACKENDS = (
+    'authentication.backends.EmailAuthenticationBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -175,3 +183,6 @@ CHANNEL_LAYERS={
 SELECT2_JS = '/static/assets/plugins/custom/select2/select2.min.js'
 SELECT2_CSS = '/static/assets/plugins/custom/select2/select2.min.css'
 SELECT2_I18N_PATH = '/static/assets/plugins/custom/select2/i18n/tr.js'
+
+# 1 dk işlem yapmazssa logout olacak
+SESSION_COOKIE_AGE = 1*60

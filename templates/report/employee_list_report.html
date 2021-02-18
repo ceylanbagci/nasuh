@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+{% load humanize %}
+<body>
+
+<h2>{{results.title}} {{results.date}}</h2>
+
+<table>
+  <tr>
+    <th>Adı Soyadı</th>
+    <th>Tel No</th>
+    <th>Adres</th>
+    <th>Email</th>
+  </tr>
+	{%for client in results.qs%}
+  <tr>
+    <td>{{client.full_name}}</td>
+    <td>{{client.phone}}</td>
+    <td>
+		{{client.address}}
+	</td>
+	<td>
+		{{client.email}}
+	</td>
+  </tr>
+  	{%endfor%}
+	<tr>
+		<td colspan="5">Toplam: {{results.total}} müvekkil.</td>
+	</tr>
+</table>
+
+</body>
+</html>

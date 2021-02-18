@@ -12,8 +12,8 @@
 								<div class="d-none d-lg-flex align-items-center mr-3">
 
 									<!--begin::Logo-->
-									<a href="/" class="mr-20">
-										<img alt="Logo" src="/static/assets/media/logos/logo-letter-12.png" class="max-h-40px" />
+									<a href="/case/case_list" class="mr-20">
+										<img alt="Logo" src="/static/assets/media/project-logos/nasuh_logo.png" class="max-h-70px" />
 									</a>
 
 									<!--end::Logo-->
@@ -23,13 +23,17 @@
 
 								<!--begin::Topbar-->
 								<div class="topbar topbar-top" id="kt_header_topbar">
-
+									<div class="topbar-item">
+										<span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Merhaba, </span>
+										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{request.user.full_name}}</span>
+									</div>
 									<!--begin::Search-->
 									<div class="topbar-item mr-3 w-100 w-lg-auto justify-content-start">
 										<div class="quick-search quick-search-inline w-auto w-lg-200px" id="kt_quick_search_inline">
 
 											<!--begin::Form-->
-											<form method="get" class="quick-search-form">
+											<form method="POST" action="/search" enctype="multipart/form-data" class="quick-search-form">
+												{% csrf_token %}
 												<div class="input-group rounded bg-secondary">
 													<div class="input-group-prepend">
 														<span class="input-group-text">
@@ -48,7 +52,9 @@
 															</span>
 														</span>
 													</div>
-													<input type="text" class="form-control" placeholder="Ara..." />
+
+													<input type="text" name="search" class="form-control" placeholder="Ara..." />
+
 													<div class="input-group-append">
 														<span class="input-group-text">
 															<i class="quick-search-close ki ki-close icon-sm"></i>
@@ -75,6 +81,16 @@
 
 									<!--end::Search-->
 
+								<div class="topbar-item">
+									<a href="/auth/logout">
+										<div class="btn btn-icon btn-icon-mobile btn-hover-primary w-auto btn-clean d-flex align-items-center btn-md px-2">
+											<span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+												<span class="">Çıkış</span>
+											</span>
+										</div>
+									</a>
+								</div>
+
 								</div>
 
 								<!--end::Topbar-->
@@ -96,7 +112,7 @@
 
 									<!--begin::Item-->
 									<li class="nav-item">
-										<a href="#" class="nav-link active" data-toggle="tab" data-target="#kt_header_tab_1" role="tab">
+										<a href="/case/case_list" class="nav-link {%if 'case' in request.path%} active {%endif%}" data-target="#kt_header_tab_1" role="tab">
 											<span class="nav-title text-uppercase">Dava</span>
 											<span class="nav-desc">Dosya &amp; Müvekkil</span>
 										</a>
@@ -106,7 +122,7 @@
 
 									<!--begin::Item-->
 									<li class="nav-item">
-										<a href="#" class="nav-link" data-toggle="tab" data-target="#kt_header_tab_2" role="tab">
+										<a href="/office/1/view_office" class="nav-link {%if 'office' in request.path%} active {%endif%}" data-target="#kt_header_tab_2">
 											<span class="nav-title text-uppercase">Ofis</span>
 											<span class="nav-desc">Maaş &amp; Fatualar</span>
 										</a>
@@ -116,7 +132,7 @@
 
 									<!--begin::Item-->
 									<li class="nav-item">
-										<a href="#" class="nav-link" data-toggle="tab" data-target="#kt_header_tab_3" role="tab">
+										<a href="/tax/1/view_tax" class="nav-link {%if 'tax' in request.path%} active {%endif%}" data-target="#kt_header_tab_3" role="tab">
 											<span class="nav-title text-uppercase">Vergi</span>
 											<span class="nav-desc">SGK &amp; Stopaj</span>
 										</a>
@@ -126,7 +142,7 @@
 
 									<!--begin::Item-->
 									<li class="nav-item">
-										<a href="#" class="nav-link" data-toggle="tab" data-target="#kt_header_tab_4" role="tab">
+										<a href="/other/1/view_other" class="nav-link {%if 'other' in request.path%} active {%endif%}" data-target="#kt_header_tab_4" role="tab">
 											<span class="nav-title text-uppercase">DİĞER</span>
 											<span class="nav-desc">Vekalet &amp; Tazminat</span>
 										</a>
@@ -136,7 +152,7 @@
 
 									<!--begin::Item-->
 									<li class="nav-item">
-										<a href="#" class="nav-link" data-toggle="tab" data-target="#kt_header_tab_5" role="tab">
+										<a href="/report/report_list" class="nav-link {%if 'report' in request.path%} active {%endif%}" data-target="#kt_header_tab_5" role="tab">
 											<span class="nav-title text-uppercase">Raporlar</span>
 											<span class="nav-desc">Gün Sonu &amp; Ay Sonu</span>
 										</a>
@@ -154,7 +170,7 @@
 									<div class="tab-content">
 
 										<!--begin::Tab Pane-->
-										<div class="tab-pane justify-content-between px-4 px-lg-0 show active" id="kt_header_tab_1">
+										<div class="tab-pane justify-content-between px-4 px-lg-0 {%if 'case' in request.path%} show active {%endif%}" id="kt_header_tab_1">
 
 											<div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
 
@@ -162,16 +178,14 @@
 												<a href="/case/case_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Dava Listesi</a>
 												<a href="/case/client_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Müvekkli Listesi</a>
 												<a href="/case/partner_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Ortak Listesi</a>
-												<a href="/case/expense_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Gelir-Gider Türü Listesi</a>
+												<a href="/case/expense_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Dava Gelir Giderleri</a>
 
 												<!--end::Actions-->
 											</div>
 											<div class="d-flex align-items-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-dark font-weight-bold my-2 my-lg-0">Rapor Al</a>
-
-												<!--end::Actions-->
+<!--end::Actions-->
 											</div>
 
 										</div>
@@ -179,72 +193,63 @@
 										<!--begin::Tab Pane-->
 
 										<!--begin::Tab Pane-->
-										<div class="tab-pane justify-content-between px-4 px-lg-0" id="kt_header_tab_2">
+										<div class="tab-pane justify-content-between px-4 px-lg-0 {%if 'office' in request.path%} show active {%endif%}" id="kt_header_tab_2">
 											<div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Maaş Gideri</a>
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Faturalar</a>
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Mutfak Giderleri</a>
+												<a href="/office/1/view_office" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Ofis</a>
+												<a href="/office/employee_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Çalışanlar</a>
+												<a href="/office/expense_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Ofis Gelir Giderleri</a>
 
 												<!--end::Actions-->
 											</div>
 											<div class="d-flex align-items-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-dark font-weight-bold my-2 my-lg-0">Rapor Al</a>
-
-												<!--end::Actions-->
+<!--end::Actions-->
 											</div>
 										</div>
 
 										<!--begin::Tab Pane-->
-										<div class="tab-pane justify-content-between px-4 px-lg-0" id="kt_header_tab_3">
+										<div class="tab-pane justify-content-between px-4 px-lg-0 {%if 'tax' in request.path%} show active {%endif%}" id="kt_header_tab_3">
 											<div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">SGK</a>
-												<a href="#" class="btn btn-light font-weight-bold my-2 my-lg-0">STOPAJ</a>
+												<a href="/tax/1/view_tax" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Vergi</a>
+												<a href="/tax/expense_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Vergi Gelir Giderleri</a>
 
 												<!--end::Actions-->
 											</div>
 											<div class="d-flex align-items-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-dark font-weight-bold my-2 my-lg-0">Rapor Al</a>
-
-												<!--end::Actions-->
+<!--end::Actions-->
 											</div>
 										</div>
 
 										<!--begin::Tab Pane-->
-										<div class="tab-pane justify-content-between px-4 px-lg-0" id="kt_header_tab_4">
+										<div class="tab-pane justify-content-between px-4 px-lg-0 {%if 'other' in request.path%} show active {%endif%}" id="kt_header_tab_4">
 											<div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Vekalet</a>
-												<a href="#" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Tazminat</a>
-												<a href="#" class="btn btn-light font-weight-bold my-2 my-lg-0">Diğer</a>
+												<a href="/other/1/view_other" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Diğer</a>
+												<a href="/other/expense_list" class="btn btn-light font-weight-bold mr-3 my-2 my-lg-0">Diğer Gelir Giderler</a>
 
 												<!--end::Actions-->
 											</div>
 											<div class="d-flex align-items-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-dark font-weight-bold my-2 my-lg-0">Rapor Al</a>
-
-												<!--end::Actions-->
+<!--end::Actions-->
 											</div>
 										</div>
 
 										<!--begin::Tab Pane-->
-										<div class="tab-pane justify-content-between px-4 px-lg-0" id="kt_header_tab_5">
+										<div class="tab-pane justify-content-between px-4 px-lg-0 {%if 'report' in request.path%} show active {%endif%}" id="kt_header_tab_5">
 											<div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
 
 												<!--begin::Actions-->
-												<a href="#" class="btn btn-dark font-weight-bold mr-3 my-2 my-lg-0">Gün Sonu Al</a>
-												<a href="#" class="btn btn-dark font-weight-bold mr-3 my-2 my-lg-0">Ay Sonu Al</a>
-												<a href="#" class="btn btn-dark font-weight-bold my-2 my-lg-0">Yıl Sonu Al</a>
+												<a href="/report/get_with_day" class="btn btn-dark font-weight-bold mr-3 my-2 my-lg-0">Tarihe Göre Al</a>
 
 												<!--end::Actions-->
 											</div>
@@ -254,6 +259,8 @@
 										</div>
 
 										<!--begin::Tab Pane-->
+
+
 									</div>
 
 									<!--end::Tab Content-->

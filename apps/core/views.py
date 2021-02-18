@@ -3,9 +3,12 @@ from django.http import JsonResponse
 from .models import *
 import core.helper as hlp
 import json
+from django.contrib.auth.decorators import login_required
 
 
 
+
+@login_required
 def get_districts_from_city(request, city_id=None):
     district_list = hlp.get_list(model_class=District,city__id=city_id).order_by("name")
     return JsonResponse({'district_list': json.dumps([{

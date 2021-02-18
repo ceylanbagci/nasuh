@@ -45,7 +45,6 @@ def custom_create(model_class,**kwargs):
     try:
         return model_class.objects.create(**kwargs)
     except Exception as e:
-        print(e)
         return None
 
 def custom_update(model_class,id,parameters):

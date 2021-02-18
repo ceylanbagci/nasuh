@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% load humanize %}
 
 {% block head %}
 {{form.media}}
@@ -33,7 +34,7 @@
                                 <ul class="navi flex-column navi-hover py-2">
                                     <li class="navi-header font-weight-bolder font-size-sm text-primary pb-2">Birini Seçiniz:</li>
                                     <li class="navi-item">
-                                        <a href="#" class="navi-link">
+                                        <a href="/report/get_expense_report" class="navi-link">
                                             <span class="navi-icon">
                                                 <i class="la la-print"></i>
                                             </span>
@@ -41,31 +42,7 @@
                                         </a>
                                     </li>
                                     <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-copy"></i>
-                                            </span>
-                                            <span class="navi-text">Kopyala</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-file-excel-o"></i>
-                                            </span>
-                                            <span class="navi-text">Excel</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
-                                            <span class="navi-icon">
-                                                <i class="la la-file-text-o"></i>
-                                            </span>
-                                            <span class="navi-text">CSV</span>
-                                        </a>
-                                    </li>
-                                    <li class="navi-item">
-                                        <a href="#" class="navi-link">
+                                        <a href="/report/get_expense_report" class="navi-link">
                                             <span class="navi-icon">
                                                 <i class="la la-file-pdf-o"></i>
                                             </span>
@@ -79,7 +56,7 @@
                         </div>
                         <!--end::Dropdown-->
                         <!--begin::Button-->
-                        <a href="/case/create_expense" class="btn btn-primary font-weight-bolder">
+                        <a href="/expense/create" class="btn btn-primary font-weight-bolder">
                         <span class="svg-icon svg-icon-md">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo11/dist/assets/media/svg/icons/Design/Flatten.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -100,47 +77,51 @@
                 {%for expense in results%}
                 {%if expense.type == 2%}
                 <div class="col-xl-4">
-                    <!--begin::Stats Widget 13-->
-                    <div class="card card-custom bg-danger card-stretch gutter-b">
+
+
+                    <a href="/expense/{{expense.id}}/view_expense" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-02-01-052524/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Up-right.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24"/>
-                                    <rect fill="#000000" opacity="0.3" transform="translate(11.646447, 12.853553) rotate(-315.000000) translate(-11.646447, -12.853553) " x="10.6464466" y="5.85355339" width="2" height="14" rx="1"/>
-                                    <path d="M8.1109127,8.90380592 C7.55862795,8.90380592 7.1109127,8.45609067 7.1109127,7.90380592 C7.1109127,7.35152117 7.55862795,6.90380592 8.1109127,6.90380592 L16.5961941,6.90380592 C17.1315855,6.90380592 17.5719943,7.32548256 17.5952502,7.8603687 L17.9488036,15.9920967 C17.9727933,16.5438602 17.5449482,17.0106003 16.9931847,17.0345901 C16.4414212,17.0585798 15.974681,16.6307346 15.9506913,16.0789711 L15.6387276,8.90380592 L8.1109127,8.90380592 Z" fill="#000000" fill-rule="nonzero"/>
-                                </g>
-                            </svg><!--end::Svg Icon--></span>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Shopping/Cart3.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24"></rect>
+                                        <path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                        <path d="M3.5,9 L20.5,9 C21.0522847,9 21.5,9.44771525 21.5,10 C21.5,10.132026 21.4738562,10.2627452 21.4230769,10.3846154 L17.7692308,19.1538462 C17.3034221,20.271787 16.2111026,21 15,21 L9,21 C7.78889745,21 6.6965779,20.271787 6.23076923,19.1538462 L2.57692308,10.3846154 C2.36450587,9.87481408 2.60558331,9.28934029 3.11538462,9.07692308 C3.23725479,9.02614384 3.36797398,9 3.5,9 Z M12,17 C13.1045695,17 14,16.1045695 14,15 C14,13.8954305 13.1045695,13 12,13 C10.8954305,13 10,13.8954305 10,15 C10,16.1045695 10.8954305,17 12,17 Z" fill="#000000"></path>
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
                             <div class="text-inverse-danger font-weight-bolder font-size-h5 mb-2 mt-5">{{expense.title}}</div>
                             <div class="font-weight-bold text-inverse-danger font-size-sm">{{expense.get_type_display}}</div>
-                            <a href="/case/{{expense.slug}}/delete_expense" class="btn-confirmation-delete d-flex justify-content-end">
-                                <i class="icon text-light flaticon-delete"></i>
-                            </a>
                         </div>
                         <!--end::Body-->
-                    </div>
-                    <!--end::Stats Widget 13-->
+                    </a>
+
+
+
                 </div>
                 {%else%}
                 <div class="col-xl-4">
                     <!--begin::Stats Widget 15-->
-                    <div class="card card-custom bg-success card-stretch gutter-b">
+                    <div  class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                        <a href="/expense/{{expense.id}}/view_expense">
                         <!--begin::Body-->
                         <div class="card-body">
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-02-01-052524/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Down-left.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <span class="svg-icon svg-icon-white svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-02-01-052524/theme/html/demo1/dist/../src/media/svg/icons/Shopping/Money.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon points="0 0 24 0 24 24 0 24"/>
-                                    <rect fill="#000000" opacity="0.3" transform="translate(12.353553, 12.146447) rotate(-135.000000) translate(-12.353553, -12.146447) " x="11.3535534" y="5.14644661" width="2" height="14" rx="1"/>
-                                    <path d="M15.8890873,16.0961941 C16.441372,16.0961941 16.8890873,16.5439093 16.8890873,17.0961941 C16.8890873,17.6484788 16.441372,18.0961941 15.8890873,18.0961941 L7.40380592,18.0961941 C6.86841446,18.0961941 6.42800568,17.6745174 6.40474976,17.1396313 L6.05119637,9.00790332 C6.02720666,8.45613984 6.45505183,7.98939965 7.00681531,7.96540994 C7.55857879,7.94142022 8.02531897,8.36926539 8.04930869,8.92102887 L8.36127239,16.0961941 L15.8890873,16.0961941 Z" fill="#000000" fill-rule="nonzero"/>
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z" fill="#000000" opacity="0.3" transform="translate(11.500000, 12.000000) rotate(-345.000000) translate(-11.500000, -12.000000) "/>
+                                    <path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z M11.5,14 C12.6045695,14 13.5,13.1045695 13.5,12 C13.5,10.8954305 12.6045695,10 11.5,10 C10.3954305,10 9.5,10.8954305 9.5,12 C9.5,13.1045695 10.3954305,14 11.5,14 Z" fill="#000000"/>
                                 </g>
-                            </svg><!--end::Svg Icon--></span>
+                            </svg><!--end::Svg Icon-->
+                            </span>
                             <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">{{expense.title}}</div>
                             <div class="font-weight-bold text-inverse-success font-size-sm">{{expense.get_type_display}}</div>
-                            <a href="/case/{{expense.slug}}/delete_expense" class="btn-confirmation-delete d-flex justify-content-end">
-                                <i class="icon text-light flaticon-delete"></i>
-                            </a>
                         </div>
                         <!--end::Body-->
+                        </a>
                     </div>
                     <!--end::Stats Widget 15-->
                 </div>

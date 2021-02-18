@@ -1,8 +1,8 @@
 {% extends "home/base.html" %}
+{% load humanize %}
 
 {% block head %}
 {{form.media}}
-		<!--<link rel="shortcut icon" href="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.css" />-->
 {% endblock %}
 
 {% block content %}
@@ -14,22 +14,66 @@
             <!--begin::Card-->
             <div class="card card-custom gutter-b example example-compact">
                 <div class="card-header">
-                    <h3 class="card-title">Gelir-Gider Türü Oluştur</h3>
+                    <h3 class="card-title">{{instance.full_name}} Maaş Ödemesi Yap</h3><br>
+                    <h4 class="card-title text-muted">Maaşı: {{instance.salary}} ₺</h4>
 
                 </div>
                 <!--begin::Form-->
-                {%if instance%}
-                    <form action="/case/{{instance.slug}}/update_expense" method="post" enctype="multipart/form-data" novalidate>
-                {%else%}
-                    <form action="/case/create_expense" method="post" enctype="multipart/form-data" novalidate>
-                {%endif%}
+                    {%if instance.get_cname == 'Expense'%}
+                        <form action="/transactions/expense_salary" method="post" enctype="multipart/form-data" novalidate>
+                    {% else %}
+                        <form action="/transactions/{{instance.slug}}/salary" method="post" enctype="multipart/form-data" novalidate>
+                    {% endif %}
                         {% csrf_token %}
+                        <!--{{form.expense}}-->
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>Başlık
-                            <span class="text-danger"></span></label>
-                            {{form.title}}
+                            <label>Gelir-Gider Türü
+                            <span class="text-danger">*</span></label>
+                            {{form.expense}}
+                            {%for error in form.expense.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Gelir Gider Türünü Seçin.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Çalışan
+                            <span class="text-danger">*</span></label>
+                            {{form.employee}}
+                            {%for error in form.employee.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Çalışan Seçin.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Miktar
+                            <span class="text-danger">*</span></label>
+                            {{form.amount}}
+                            {%for error in form.amount.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Miktarı Girin.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Türü
+                            <span class="text-danger">*</span></label>
+                            {{form.type}}
                             {%for error in form.title.errors%}
                             <div class="validated">
                                 <div class="invalid-feedback">
@@ -37,31 +81,38 @@
                                 </div>
                             </div>
                             {%endfor%}
-                            <span class="form-text text-muted">Gelir veya Gider Başlığını Girin.</span>
+                            <span class="form-text text-muted">Türünü Seçin.</span>
                         </div>
 
+                         <div class="form-group">
+                            <label>Tarih</label>
+                            <div class="input-group date" id="kt_datetimepicker_1" data-target-input="nearest">
+                               {{form.date}}
+                                <div class="input-group-append" data-target="#kt_datetimepicker_1" data-toggle="datetimepicker">
+                                    <span class="input-group-text">
+                                     <i class="ki ki-calendar"></i>
+                                    </span>
+                               </div>
+                              </div>
+                        </div>
+
+
                         <div class="form-group">
-                            <label>Tür
+                            <label>Açıklama
                             <span class="text-danger"></span></label>
-                            {{form.type}}
-                            {%for error in form.type.errors%}
+                            {{form.description}}
+                            {%for error in form.description.errors%}
                             <div class="validated">
                                 <div class="invalid-feedback">
                                     {{error}}
                                 </div>
                             </div>
                             {%endfor%}
-                            <span class="form-text text-muted">Gelir veya Gider Türünü Seçin.</span>
+                            <span class="form-text text-muted">Açıklama Girin.</span>
                         </div>
 
-                        <div class="form-group">
-                            <label>Açıklama</label>
-                            {{form.description}}
-                            <span class="form-text text-muted">Açıklama Girin.</span>
-                            {%for error in form.description.errors%}
-                              <div class="invalid-feedback">{{error}}</div>
-                            {%endfor%}
-                        </div>
+
+
 
                         <!--begin: Code-->
                         <div class="example-code mt-10">
@@ -160,9 +211,7 @@
 
 {% block script %}
 <script src="/static/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
-<script src="/static/assets/js/city_district.js"></script>
 
-{{form.media}}
 <script>
 
     $('#kt_datetimepicker_1').datetimepicker({
@@ -171,13 +220,4 @@
                 });
 
 </script>
-<script type="text/javascript">
-    // django_select2 initialize
-    window.onerror = function (msg) {
-      $("body").attr("JSError", msg);
-    }
-
-</script>
-<!--<script src="/static/assets/js/sweetalert_init.js"></script>-->
-<!--<script src="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.js"></script>-->
   {% endblock %}
