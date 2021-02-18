@@ -23,4 +23,10 @@ urlpatterns = [
     path('case/', include('case.urls')),
     path("select2/", include("django_select2.urls")),
     path("core/", include("core.urls")),
+    path("office/", include("office.urls")),
+    path("tax/", include("tax.urls")),
+    path("other/", include("other.urls")),
+    path("expense/", include("expense.urls")),
+    path("transactions/", include("transactions.urls")),
+    path("report/", include("report.urls")),
 ]

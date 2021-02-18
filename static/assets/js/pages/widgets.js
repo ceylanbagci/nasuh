@@ -1230,10 +1230,10 @@ var KTWidgets = function () {
         var options = {
             series: [{
                 name: 'Net Profit',
-                data: [60, 50, 80, 40, 100, 60]
+                data: [60, 50,  60]
             }, {
                 name: 'Revenue',
-                data: [70, 60, 110, 40, 50, 70]
+                data: [70, 60, 110, 40,60, 110, 40, 50, 70]
             }],
             chart: {
                 type: 'area',

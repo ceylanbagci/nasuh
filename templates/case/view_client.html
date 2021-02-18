@@ -1,4 +1,5 @@
 {% extends "home/base.html" %}
+{% load humanize %}
 
 {% block head %}
 {{form.media}}
@@ -35,7 +36,7 @@
 								</a>
 							</div>
 							<div class="my-lg-0 my-3">
-								<a href="#" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">Rapor Al</a>
+								<a href="/report/{{client.slug}}/get_client_report" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">Rapor Al</a>
 								<a href="/case/{{client.slug}}/update_client" class="btn btn-sm btn-info font-weight-bolder text-uppercase mr-3">Düzenle</a>
 								<a href="/case/{{client.slug}}/delete_client" class="btn btn-sm btn-light-danger font-weight-bolder text-uppercase btn-delete-confirmation">Sil</a>
 							</div>
@@ -89,7 +90,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Gelir</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold">₺</span>249,500</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{client.get_stats.total_income.sum|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -101,7 +102,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Gider</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold">₺</span>164,700</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{client.get_stats.total_spent.sum|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -113,7 +114,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Kâr</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold">₺</span>782,300</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{client.get_stats.get_difference|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -124,7 +125,7 @@
 						</span>
 						<div class="d-flex flex-column flex-lg-fill">
 							<span class="text-dark-75 font-weight-bolder font-size-sm">Toplam Hesap  Hareketi</span>
-							<a href="#" class="text-primary font-weight-bolder">123</a>
+							<a href="#" class="text-primary font-weight-bolder">{{client.get_stats.total}}</a>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -135,24 +136,17 @@
 		<!--end::Card-->
 		<!--begin::Row-->
 		<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<!--begin::Advance Table Widget 3-->
 				<div class="card card-custom card-stretch gutter-b">
 					<!--begin::Header-->
 					<div class="card-header border-0 py-5">
 						<h3 class="card-title align-items-start flex-column">
 							<span class="card-label font-weight-bolder text-dark">Müvekkil Hesap Hareketleri</span>
-							<span class="text-muted mt-3 font-weight-bold font-size-sm">Toplam 400+</span>
+							<span class="text-muted mt-3 font-weight-bold font-size-sm">Toplam {{client.get_stats.total}}</span>
 						</h3>
 						<div class="card-toolbar">
-							<a href="#" class="btn btn-success font-weight-bolder font-size-sm">
-							<span class="svg-icon svg-icon-white svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-02-01-052524/theme/html/demo1/dist/../src/media/svg/icons/Shopping/Money.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-					<rect x="0" y="0" width="24" height="24"/>
-					<path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z" fill="#000000" opacity="0.3" transform="translate(11.500000, 12.000000) rotate(-345.000000) translate(-11.500000, -12.000000) "/>
-					<path d="M2,6 L21,6 C21.5522847,6 22,6.44771525 22,7 L22,17 C22,17.5522847 21.5522847,18 21,18 L2,18 C1.44771525,18 1,17.5522847 1,17 L1,7 C1,6.44771525 1.44771525,6 2,6 Z M11.5,16 C13.709139,16 15.5,14.209139 15.5,12 C15.5,9.790861 13.709139,8 11.5,8 C9.290861,8 7.5,9.790861 7.5,12 C7.5,14.209139 9.290861,16 11.5,16 Z M11.5,14 C12.6045695,14 13.5,13.1045695 13.5,12 C13.5,10.8954305 12.6045695,10 11.5,10 C10.3954305,10 9.5,10.8954305 9.5,12 C9.5,13.1045695 10.3954305,14 11.5,14 Z" fill="#000000"/>
-				</g>
-			</svg><!--end::Svg Icon--></span>Yeni Hesap Hareketi Oluştur</a>
+
 						</div>
 					</div>
 					<!--end::Header-->
@@ -164,8 +158,9 @@
 								<thead>
 									<tr class="text-uppercase">
 										<th class="pl-7">
-											<span class="text-dark-75">Gelir Gider Türü</span>
+											<span>Gelir Gider Türü</span>
 										</th>
+										<th >Dosya</th>
 										<th >Gelir</th>
 										<th >Gider</th>
 										<th >Tarih</th>
@@ -173,208 +168,117 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Tazminat Geliri</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-success label-inline font-weight-bolder">2,790₺</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">12.10.2020</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
+						{%for trans in results%}
+						<tr>
+							<td>
+								<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{trans.expense.title}}</span>
+								<span class="text-muted font-weight-bold">{{trans.case.description}}</span>
+							</td>
+							<td>
+								<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{trans.case.title}}</span>
+							</td>
+							<td>
+								{%if trans.type == 1%}
+								<span class="label label-lg label-light-success label-inline font-weight-bolder">{{trans.amount|intcomma}}₺</span>
+								{%endif%}
+							</td>
+							<td>
+								{%if trans.type == 2%}
+								<span class="label label-lg label-light-danger label-inline font-weight-bolder">{{trans.amount|intcomma}}₺</span>
+								{%endif%}
+							</td>
+							<td>
+								<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{trans.date}}</span>
+								<span class="text-muted font-weight-bold">{{trans.description}}</span>
+							</td>
 
-										<td class="text-right pr-0">
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-3">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/General/Bookmark.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M8,4 L16,4 C17.1045695,4 18,4.8954305 18,6 L18,17.726765 C18,18.2790497 17.5522847,18.726765 17,18.726765 C16.7498083,18.726765 16.5087052,18.6329798 16.3242754,18.4639191 L12.6757246,15.1194142 C12.2934034,14.7689531 11.7065966,14.7689531 11.3242754,15.1194142 L7.67572463,18.4639191 C7.26860564,18.8371115 6.63603827,18.8096086 6.26284586,18.4024896 C6.09378519,18.2180598 6,17.9769566 6,17.726765 L6,6 C6,4.8954305 6.8954305,4 8,4 Z" fill="#000000" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<polygon points="0 0 24 0 24 24 0 24" />
-															<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
-															<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-										</td>
-									</tr>
-									<tr>
+							<td class="text-right pr-0">
+								<a href="/transactions/{{trans.id}}/delete" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-3 btn-delete-confirmation">
+									<span class="svg-icon svg-icon-primary svg-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-02-01-052524/theme/html/demo9/dist/../src/media/svg/icons/Home/Trash.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+											<rect x="0" y="0" width="24" height="24"/>
+											<path d="M6,8 L18,8 L17.106535,19.6150447 C17.04642,20.3965405 16.3947578,21 15.6109533,21 L8.38904671,21 C7.60524225,21 6.95358004,20.3965405 6.89346498,19.6150447 L6,8 Z M8,10 L8.45438229,14.0894406 L15.5517885,14.0339036 L16,10 L8,10 Z" fill="#000000" fill-rule="nonzero"/>
+											<path d="M14,4.5 L14,3.5 C14,3.22385763 13.7761424,3 13.5,3 L10.5,3 C10.2238576,3 10,3.22385763 10,3.5 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3"/>
+										</g>
+									</svg><!--end::Svg Icon--></span>
+								</a>
 
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Konaklama</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-danger label-inline">₺1,600</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">01.01.2021</span>
-										</td>
+							</td>
+						</tr>
+						{%endfor%}
+						<div class="separator separator-solid my-7"></div>
+						<tr>
+							<td>
+								<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Toplam</span>
+								<span class="text-muted font-weight-bold"></span>
+							</td>
+							<td>
+								<span class="label label-lg label-light-success label-inline">{{client.get_stats.total_income.sum|intcomma}} ₺</span>
+							</td>
+							<td>
+								<span class="label label-lg label-light-danger  label-inline">{{client.get_stats.total_spent.sum|intcomma}} ₺</span>
+								<span class="text-muted font-weight-bold"></span>
+							</td>
+							<td>
+								<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
+								<span class="text-muted font-weight-bold"></span>
+							</td>
 
-										<td class="text-right pr-0">
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-3">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/General/Bookmark.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M8,4 L16,4 C17.1045695,4 18,4.8954305 18,6 L18,17.726765 C18,18.2790497 17.5522847,18.726765 17,18.726765 C16.7498083,18.726765 16.5087052,18.6329798 16.3242754,18.4639191 L12.6757246,15.1194142 C12.2934034,14.7689531 11.7065966,14.7689531 11.3242754,15.1194142 L7.67572463,18.4639191 C7.26860564,18.8371115 6.63603827,18.8096086 6.26284586,18.4024896 C6.09378519,18.2180598 6,17.9769566 6,17.726765 L6,6 C6,4.8954305 6.8954305,4 8,4 Z" fill="#000000" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<polygon points="0 0 24 0 24 24 0 24" />
-															<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
-															<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-										</td>
-									</tr>
-									<tr>
+							<td class="text-right pr-0">
 
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Yemek</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-danger label-inline">₺100</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">01.03.2021</span>
-										</td>
+							</td>
+						</tr>
+					</tbody>
+									</table>
+									{% if results.has_other_pages %}
+									<div class="row">
+									  <div class="col-12">
+										<ul class="pagination justify-content-center">
+											<li class="page-item"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page=1">
+												<i class="ki ki-bold-double-arrow-back icon-xs"></i>
+											</a></li>
+										  {% if results.has_previous %}
+											<li class="page-item"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ results.previous_page_number }}">
+												<i class="ki ki-bold-arrow-back icon-xs"></i>
+											</a></li>
+										  {% else %}
+											<li class="page-item disabled"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="#">
+												<i class="ki ki-bold-arrow-back icon-xs"></i>
+											</a></li>
+										  {% endif %}
 
-										<td class="text-right pr-0">
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-3">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/General/Bookmark.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M8,4 L16,4 C17.1045695,4 18,4.8954305 18,6 L18,17.726765 C18,18.2790497 17.5522847,18.726765 17,18.726765 C16.7498083,18.726765 16.5087052,18.6329798 16.3242754,18.4639191 L12.6757246,15.1194142 C12.2934034,14.7689531 11.7065966,14.7689531 11.3242754,15.1194142 L7.67572463,18.4639191 C7.26860564,18.8371115 6.63603827,18.8096086 6.26284586,18.4024896 C6.09378519,18.2180598 6,17.9769566 6,17.726765 L6,6 C6,4.8954305 6.8954305,4 8,4 Z" fill="#000000" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<polygon points="0 0 24 0 24 24 0 24" />
-															<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
-															<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Vekalet Ücreti</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-success label-inline">8,790₺</span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">12.10.2020</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
+										  {% if results.number|add:'-4' > 1 %}
+											<li><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ results.number|add:'-10' }}">&hellip;</a></li>
+										  {% endif %}
 
-										<td class="text-right pr-0">
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-3">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/General/Bookmark.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<rect x="0" y="0" width="24" height="24" />
-															<path d="M8,4 L16,4 C17.1045695,4 18,4.8954305 18,6 L18,17.726765 C18,18.2790497 17.5522847,18.726765 17,18.726765 C16.7498083,18.726765 16.5087052,18.6329798 16.3242754,18.4639191 L12.6757246,15.1194142 C12.2934034,14.7689531 11.7065966,14.7689531 11.3242754,15.1194142 L7.67572463,18.4639191 C7.26860564,18.8371115 6.63603827,18.8096086 6.26284586,18.4024896 C6.09378519,18.2180598 6,17.9769566 6,17.726765 L6,6 C6,4.8954305 6.8954305,4 8,4 Z" fill="#000000" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-											<a href="#" class="btn btn-icon btn-light btn-hover-primary btn-sm">
-												<span class="svg-icon svg-icon-md svg-icon-primary">
-													<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Arrow-right.svg-->
-													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-															<polygon points="0 0 24 0 24 24 0 24" />
-															<rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-90.000000) translate(-12.000000, -12.000000)" x="11" y="5" width="2" height="14" rx="1" />
-															<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-														</g>
-													</svg>
-													<!--end::Svg Icon-->
-												</span>
-											</a>
-										</td>
-									</tr>
-									<div class="separator separator-solid my-7"></div>
-									<tr>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg">Toplam</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-success label-inline">12,790₺</span>
-										</td>
-										<td>
-											<span class="label label-lg label-light-danger  label-inline">1700₺</span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
-										<td>
-											<span class="text-dark-75 font-weight-bolder d-block font-size-lg"></span>
-											<span class="text-muted font-weight-bold"></span>
-										</td>
+										  {% for i in results.paginator.page_range %}
+											{% if results.number == i %}
+											  <li class="page-item disabled"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1 active" href="#">{{ i }}</a></li>
+											{% elif i > results.number|add:'-3' and i < results.number|add:'3' %}
+											  <li class="page-item"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ i }}">{{ i }}</a></li>
+											{% endif %}
+										  {% endfor %}
 
-										<td class="text-right pr-0">
+										  {% if results.paginator.num_pages > results.number|add:'2' %}
+											  <li><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ results.number|add:'10' }}">&hellip;</a></li>
+										  {% endif %}
 
-										</td>
-									</tr>
-								</tbody>
-							</table>
+										  {% if results.has_next %}
+											<li class="page-item"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ results.next_page_number }}">
+												<i class="ki ki-bold-arrow-next icon-xs"></i>
+											</a></li>
+										  {% else %}
+											<li class="page-item disabled"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="#">
+												<i class="ki ki-bold-arrow-next icon-xs"></i>
+											</a></li>
+										  {% endif %}
+											<li class="page-item"><a class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" href="?page={{ results.paginator.num_pages }}">
+												<i class="ki ki-bold-double-arrow-next icon-xs"></i>
+											</a></li>
+										</ul>
+									  </div>
+									</div>
+									{% endif %}
 						</div>
 						<!--end::Table-->
 					</div>
@@ -382,41 +286,24 @@
 				</div>
 				<!--end::Advance Table Widget 3-->
 			</div>
-			<div class="col-lg-4">
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
 				<!--begin::Charts Widget 4-->
 				<div class="card card-custom card-stretch gutter-b">
 					<!--begin::Header-->
 					<div class="card-header h-auto border-0">
 						<div class="card-title py-5">
 							<h3 class="card-label">
-								<span class="d-block text-dark font-weight-bolder">Son hesap Hareketleri</span>
-								<span class="d-block text-muted mt-2 font-size-sm">Toplam 500+ </span>
+								<span class="d-block text-dark font-weight-bolder">Son 7 Hesap Hareketi</span>
+								<span class="d-block text-muted mt-2 font-size-sm">Gelir Gider Durumu</span>
 							</h3>
-						</div>
-						<div class="card-toolbar">
-							<ul class="nav nav-pills nav-pills-sm nav-dark-75" role="tablist">
-								<li class="nav-item">
-									<a class="nav-link py-2 px-4" data-toggle="tab" href="#kt_charts_widget_2_chart_tab_1">
-										<span class="nav-text font-size-sm">Ay</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link py-2 px-4" data-toggle="tab" href="#kt_charts_widget_2_chart_tab_2">
-										<span class="nav-text font-size-sm">Hafta</span>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link py-2 px-4 active" data-toggle="tab" href="#kt_charts_widget_2_chart_tab_3">
-										<span class="nav-text font-size-sm">Gün</span>
-									</a>
-								</li>
-							</ul>
 						</div>
 					</div>
 					<!--end::Header-->
 					<!--begin::Body-->
 					<div class="card-body">
-						<div id="kt_charts_widget_4_chart"></div>
+						<div id="kt_charts_widget_1_chart_client" data-slug="{{client.slug}}"></div>
 					</div>
 					<!--end::Body-->
 				</div>
@@ -434,4 +321,5 @@
 {% endblock %}
 
 {% block script %}
+<script src="/static/assets/js/init_chart/init_charts_client.js"></script>
 {% endblock %}

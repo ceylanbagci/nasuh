@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 from django.utils.text import slugify
-
+import transactions.service as trans_service
 
 # Create your models here.
 
@@ -42,6 +42,14 @@ class Client(models.Model):
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
 
+    def get_stats(self):
+        return trans_service.get_stats_client(instance=self)
+
+    def get_cname(self):
+        class_name = 'Client'
+        return class_name
+
+
 class Partner(models.Model):
     LWYR = 1
     MR = 2
@@ -57,7 +65,6 @@ class Partner(models.Model):
 
     first_name = models.CharField(max_length=20, verbose_name='Ad')
     last_name = models.CharField(max_length=20, verbose_name='Soyad')
-    share = models.PositiveSmallIntegerField(null=True, blank=True,verbose_name="Hisse Yüzdesi")
     alias = models.PositiveSmallIntegerField(choices=ALIAS,null=True,blank=True, verbose_name="Ünvan")
     phone = models.CharField(max_length=20, blank=True, null=True, verbose_name='Telefon')
     address = models.CharField(max_length=20, blank=True, null=True, verbose_name='Adres')
@@ -94,6 +101,21 @@ class Partner(models.Model):
         if not self.slug:
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
+
+    def get_stats(self):
+        return trans_service.get_stats_partner(instance=self)
+
+    def get_cname(self):
+        class_name = 'Partner'
+        return class_name
+
+class Partnership(models.Model):
+    partner = models.ForeignKey('case.Partner', on_delete=models.CASCADE,
+                             related_name="partnerships", verbose_name="Ortaklık")
+    case = models.ForeignKey('case.Case', null=True, blank=True, on_delete=models.CASCADE,
+                             related_name="partnerships", verbose_name="Dosya")
+    share = models.PositiveSmallIntegerField(null=True, blank=True,verbose_name="Hisse Yüzdesi")
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Status(models.Model):
@@ -139,6 +161,7 @@ class Case(models.Model):
     city = models.ForeignKey('core.City', null=True, blank=True, on_delete=models.SET_NULL, related_name="instructor_city",verbose_name="İl")
     district = models.ForeignKey('core.District', null=True, blank=True, on_delete=models.SET_NULL, related_name="instructor_district",verbose_name="İlçe")
     status = models.PositiveSmallIntegerField(choices=STATUS,null=True,blank=True, verbose_name="Durum")
+    expense = models.ManyToManyField('expense.Expense',null=True, blank=True, related_name='cases', verbose_name='Gelir-Gider')
 
 
     class Meta:
@@ -162,38 +185,11 @@ class Case(models.Model):
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
 
+    def get_stats(self):
+        return trans_service.get_stats_case(instance=self)
 
-class Expense(models.Model):
-    INCOME = 1
-    EXPENSE = 2
+    def get_cname(self):
+        class_name = 'Case'
+        return class_name
 
-    TYPE = (
-        (INCOME, "Gelir"),
-        (EXPENSE, "Gider"),
-    )
 
-    title = models.CharField(max_length=60, verbose_name='Başlık')
-    description = models.TextField(null=True, blank=True, verbose_name="Açıklama")
-    created_at = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    case = models.ManyToManyField(Case, related_name='expenses', verbose_name='Dosya')
-    type = models.PositiveSmallIntegerField(choices=TYPE,null=True,blank=True, verbose_name="Tür")
-
-    class Meta:
-        db_table = "expense"
-
-    def __str__(self):
-        return self.title
-
-    def _generate_unique_slug(self):
-        unique_slug = slugify(self.title)
-        num = 1
-        while Expense.objects.filter(slug=unique_slug).exists():
-            unique_slug = '{}-{}'.format(unique_slug, num)
-            num += 1
-        return unique_slug
-
-    def save(self,*args,**kwargs):
-        if not self.slug:
-            self.slug = self._generate_unique_slug()
-        super().save(*args, **kwargs)

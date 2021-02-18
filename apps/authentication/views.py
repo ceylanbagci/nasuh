@@ -23,7 +23,7 @@ def sign_up(request):
             messages.error(request, custom_messages.SIGNUP_ERROR)
     else:
         form = SignUpForm()
-    return render(request,'authentication/sign-up.html',locals())
+    return render(request,'authentication/signup.html',locals())
 
 @csrf_protect
 def log_in(request):
@@ -35,13 +35,13 @@ def log_in(request):
             try:
                 login(request, user)
                 if request.user.is_master:
-                    return redirect("/")
+                    return redirect("/case/case_list")
             except Exception as e:
                 messages.error(request, custom_messages.LOGIN_ERROR)
         else:
             messages.error(request, custom_messages.AUTHENTICATION_ERROR)
     form = LoginForm()
-    return render(request, 'authentication/log-in.html', locals())
+    return render(request, 'authentication/login.html', locals())
 
 @csrf_protect
 def log_out(request):
@@ -68,7 +68,7 @@ def forgot_password(request):
             messages.error(request,custom_messages.FORGOT_PASSWORD_ERROR)
     else:
         form = ForgotPasswordForm()
-    return render (request,"authentication/password_reset.html",locals())
+    return render (request,"authentication/login_forgot.html",locals())
 
 def password_recovery(request,key):
     user = hlp.get_last(User  ,guid=key)

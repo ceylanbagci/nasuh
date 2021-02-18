@@ -19,8 +19,8 @@ urlpatterns = [
     path("create_partner", views.create_partner, name="create_partner"),
     path("<str:slug>/update_partner", views.update_partner, name="update_partner"),
     path("<str:slug>/delete_partner", views.delete_partner, name="delete_partner"),
+    path("<int:id>/partnership_delete", views.partnership_delete, name="partnership_delete"),
+    path("<str:case>/<str:partner>/determine_share", views.determine_share, name="determine_share"),
     path("expense_list", views.expense_list, name="expense_list"),
-    path("create_expense", views.create_expense, name="create_expense"),
-    path("<str:slug>/update_expense", views.update_expense, name="update_expense"),
-    path("<str:slug>/delete_expense", views.delete_expense, name="delete_expense"),
+
 ]

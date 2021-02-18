@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+{% load humanize %}
+<body>
+
+<h2>{{results.title}} {{results.date}}</h2>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Adı</th>
+    <th>Tarih</th>
+    <th>Müvekkil</th>
+    <th>Ortak</th>
+  </tr>
+	{%for case in results.qs%}
+  <tr>
+    <td>{{case.case_id}}</td>
+    <td>{{case.title}}</td>
+    <td>
+		{{case.date|date:'d.m.Y'}}
+	</td>
+	<td>
+		{%for client in case.client.all%}
+			<span>{{client.full_name}}</span><br>
+		{%endfor%}
+	</td>
+	  <td>
+		{%for partner in case.partner.all%}
+			<span>{{partner.full_name}}</span><br>
+		{%endfor%}
+	</td>
+  </tr>
+  	{%endfor%}
+	<tr>
+		<td colspan="5">Toplam: {{results.total}} dosya.</td>
+	</tr>
+</table>
+
+</body>
+</html>

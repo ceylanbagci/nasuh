@@ -1,0 +1,58 @@
+{% extends "authentication/base.html" %}
+
+{% block content %}
+
+
+<!--begin::Signin-->
+<div class="login-form login-signin">
+    <!--begin::Form-->
+    <form class="form" action="/auth/login" method="POST" enctype="multipart/form-data" novalidate="novalidate" >
+        {% csrf_token %}
+        <!--begin::Title-->
+        <div class="pb-13 pt-lg-0 pt-5">
+            <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Giriş Sayfası</h3>
+            <span class="text-muted font-weight-bold font-size-h4">Hesabınız Yoksa
+            <a href="/auth/signup" class="text-primary font-weight-bolder">Kullanıcı Oluştur</a></span>
+        </div>
+        <!--begin::Title-->
+        <!--begin::Form group-->
+        <div class="form-group">
+            <label class="font-size-h6 font-weight-bolder text-dark pt-5">Email</label>
+            {{form.username}}
+                {%for error in form.username.errors%}
+                <div class="fv-plugins-message-container">
+                    <div data-field="fullname" data-validator="notEmpty" class="fv-help-block">
+                        {{error}}
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group">
+            <label class="font-size-h6 font-weight-bolder text-dark pt-5">Parola</label>
+            {{form.password}}
+            {%for error in form.password.errors%}
+            <div class="fv-plugins-message-container">
+                    <div data-field="fullname" data-validator="notEmpty" class="fv-help-block">
+                        {{error}}
+                    </div>
+                </div>
+            {%endfor%}
+        <div class="d-flex justify-content-end">
+            <a href="/auth/forgot_password" class="text-primary font-size-h6 font-weight-bolder text-hover-primary" style="text-align: right;" >Parolamı Unuttum</a>
+        </div>
+        </div>
+        <!--end::Form group-->
+        <!--begin::Action-->
+        <div class="pb-lg-0 pb-5">
+            <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Giriş</button>
+        </div>
+        <!--end::Action-->
+    </form>
+    <!--end::Form-->
+</div>
+<!--end::Signin-->
+
+
+{%endblock%}

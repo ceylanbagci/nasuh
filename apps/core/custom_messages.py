@@ -39,5 +39,6 @@ MAKE_REQUEST_ERROR = "Katılım isteği gönderirken bir hata oluştu. Lütfen d
 REMOVE_REQUEST_SUCCESS = "Katılım isteği iptal edildi"
 REMOVE_REQUEST_ERROR = "Katılım isteği iptal edilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin"
 REQUEST_ALREADY_EXIST = "Zaten bir katılım isteğin var"
+PARTNERSHIP_ALREADY_EXIST = "Bu ortak ve dava dosyası ile ilgili bir kayıt var."
 SEND_EMAIL_ERROR = "E-Posta gönderme hatası"
 QUESTION_SIZE_ERROR = "Soru boyutu en fazla 2.5 MB olabilir. Yakınlaştırıp seçin veya dosya kalitesini azaltın."

@@ -41,12 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_select2',
     'django_filters',
     'authentication',
     'home',
     'core',
     'case',
+    'office',
+    'tax',
+    'other',
+    'expense',
+    'transactions',
+    'report',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'nasuh.urls'
 
@@ -109,6 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'authentication.backends.EmailAuthenticationBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -132,6 +143,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+print(BASE_DIR)
+print(STATICFILES_DIRS)
+
 
 
 LOGIN_URL = '/auth/login'
@@ -149,7 +163,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hotbird3005@gmail.com'
 EMAIL_HOST_PASSWORD = 'Kule3003'
 
-EMAIL_SERVER = 'http://127.0.0.1:8080'
+EMAIL_SERVER = 'http://127.0.0.1:8000'
 
 CHANNEL_LAYERS={
     "default": {
@@ -174,3 +188,6 @@ CHANNEL_LAYERS={
 SELECT2_JS = '/static/assets/plugins/custom/select2/select2.min.js'
 SELECT2_CSS = '/static/assets/plugins/custom/select2/select2.min.css'
 SELECT2_I18N_PATH = '/static/assets/plugins/custom/select2/i18n/tr.js'
+#
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+# SESSION_COOKIE_AGE = 60

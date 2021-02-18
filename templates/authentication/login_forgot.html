@@ -1,0 +1,40 @@
+{% extends "authentication/base.html" %}
+
+
+{% block content %}
+
+
+<!--begin::Forgot-->
+<div class="login-form login-forgot" style="display:block;">
+    <!--begin::Form-->
+    <form class="form" action="/auth/forgot_password" method="POST" novalidate="novalidate">
+        {%csrf_token%}
+        <!--begin::Title-->
+        <div class="pb-13 pt-lg-0 pt-5">
+            <h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Şifrenizimi Unuttunuz?</h3>
+            <p class="text-muted font-weight-bold font-size-h4">Şifrenizi sıfırlamak için eposta adresinizi girin</p>
+        </div>
+        <!--end::Title-->
+        <!--begin::Form group-->
+        <div class="form-group">
+            {{form.email}}
+                {%for error in form.email.errors%}
+                <div class="fv-plugins-message-container">
+                    <div data-field="fullname" data-validator="notEmpty" class="fv-help-block">
+                        {{error}}
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+        <!--end::Form group-->
+        <!--begin::Form group-->
+        <div class="form-group d-flex flex-wrap pb-lg-0">
+            <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Gönder</button>
+        </div>
+        <!--end::Form group-->
+    </form>
+    <!--end::Form-->
+</div>
+<!--end::Forgot-->
+
+{%endblock%}

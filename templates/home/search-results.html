@@ -1,0 +1,423 @@
+{% extends "home/base.html" %}
+{% load humanize %}
+
+{% block head %}
+{{form.media}}
+		<!--<link rel="shortcut icon" href="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.css" />-->
+{% endblock %}
+
+{% block content %}
+					<!--begin::Container-->
+					<div class="d-flex flex-row flex-column-fluid container">
+						<!--begin::Content Wrapper-->
+						<div class="main d-flex flex-column flex-row-fluid">
+							<!--begin::Subheader-->
+							<div class="subheader py-2 py-lg-4 subheader-transparent" id="kt_subheader">
+								<div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+									<!--begin::Details-->
+									<div class="d-flex align-items-center flex-wrap mr-2">
+										<!--begin::Title-->
+										<h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Arama Sonuçları</h5>
+										<!--end::Title-->
+									</div>
+									<!--end::Details-->
+
+								</div>
+							</div>
+							<!--end::Subheader-->
+							<div class="content flex-column-fluid" id="kt_content">
+								<!--begin::Row-->
+								<div class="row">
+									{%for qs in search_results%}
+											{% if qs.0.get_cname == 'Case' %}
+												<div class="col-xl-4">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Info-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-60 symbol-circle">
+														<!--<img src="/static/assets/media/svg/icons/Clothes/Shirt.svg" style="width:120px;"/>-->
+														<img src="/static/assets/media/svg/icons/Files/Folder.svg" style="width:120px;"/>
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<div class="d-flex flex-column mr-auto">
+															<h2 class="text-dark font-size-h4 font-weight-bolder mb-1">Dava Dosyaları</h2>
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-7">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Info-->
+												<div class="table-responsive">
+													<table class="table table-borderless table-vertical-center">
+														<thead>
+															<tr>
+																<th class="p-0" style="min-width: 150px"></th>
+															</tr>
+														</thead>
+														<tbody>
+															{%for case in qs%}
+															<tr>
+																<td class="pl-0">
+																	<a href="/case/{{case.slug}}/view_case" class="font-weight-bolder text-hover-info mb-1 font-size-lg">{{case.title}}</a>
+																</td>
+															</tr>
+															{%endfor%}
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-sm-center flex-wrap flex-column flex-sm-row">
+												<div class="d-flex">
+													<div class="d-flex mr-7">
+														<span class="svg-icon svg-icon-gray-500">
+															<!--begin::Svg Icon | path:assets/media/svg/icons/Text/Bullet-list.svg-->
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																	<rect x="0" y="0" width="24" height="24" />
+																	<path d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z" fill="#000000" />
+																	<path d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z" fill="#000000" opacity="0.3" />
+																</g>
+															</svg>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="font-weight-boldest text-primary ml-2">{{qs|length}} sonuç</span>
+													</div>
+
+												</div>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end:: Card-->
+									</div>
+											{% elif qs.0.get_cname == 'Client' %}
+												<div class="col-xl-4">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Info-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-60 symbol-circle">
+														<img src="/static/assets/media/svg/icons/Clothes/T-shirt.svg" style="width:120px;"/>
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<div class="d-flex flex-column mr-auto">
+															<h2 class="text-dark font-size-h4 font-weight-bolder mb-1">Müvekkiller</h2>
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-7">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Info-->
+												<div class="table-responsive">
+													<table class="table table-borderless table-vertical-center">
+														<thead>
+															<tr>
+																<th class="p-0" style="min-width: 150px"></th>
+															</tr>
+														</thead>
+														<tbody>
+															{%for client in qs%}
+															<tr>
+																<td class="pl-0">
+																	<a href="/case/{{client.slug}}/view_client" class="font-weight-bolder text-hover-info mb-1 font-size-lg">{{client.full_name}}</a>
+																</td>
+															</tr>
+															{%endfor%}
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-sm-center flex-wrap flex-column flex-sm-row">
+												<div class="d-flex">
+													<div class="d-flex mr-7">
+														<span class="svg-icon svg-icon-gray-500">
+															<!--begin::Svg Icon | path:assets/media/svg/icons/Text/Bullet-list.svg-->
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																	<rect x="0" y="0" width="24" height="24" />
+																	<path d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z" fill="#000000" />
+																	<path d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z" fill="#000000" opacity="0.3" />
+																</g>
+															</svg>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="font-weight-boldest text-primary ml-2">{{qs|length}} sonuç</span>
+													</div>
+
+												</div>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end:: Card-->
+									</div>
+											{% elif qs.0.get_cname == 'Partner' %}
+												<div class="col-xl-4">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Info-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-60 symbol-circle">
+														<img src="/static/assets/media/svg/icons/Clothes/Shirt.svg" style="width:120px;"/>
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<div class="d-flex flex-column mr-auto">
+															<h2 class="text-dark font-size-h4 font-weight-bolder mb-1">Ortaklar</h2>
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-7">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Info-->
+												<div class="table-responsive">
+													<table class="table table-borderless table-vertical-center">
+														<thead>
+															<tr>
+																<th class="p-0" style="min-width: 150px"></th>
+															</tr>
+														</thead>
+														<tbody>
+															{%for partner in qs%}
+															<tr>
+																<td class="pl-0">
+																	<a href="/case/{{partner.slug}}/view_partner" class="font-weight-bolder text-hover-info mb-1 font-size-lg">{{partner.full_name}}</a>
+																</td>
+															</tr>
+															{%endfor%}
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-sm-center flex-wrap flex-column flex-sm-row">
+												<div class="d-flex">
+													<div class="d-flex mr-7">
+														<span class="svg-icon svg-icon-gray-500">
+															<!--begin::Svg Icon | path:assets/media/svg/icons/Text/Bullet-list.svg-->
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																	<rect x="0" y="0" width="24" height="24" />
+																	<path d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z" fill="#000000" />
+																	<path d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z" fill="#000000" opacity="0.3" />
+																</g>
+															</svg>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="font-weight-boldest text-primary ml-2">{{qs|length}} sonuç</span>
+													</div>
+
+												</div>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end:: Card-->
+									</div>
+											{% elif qs.0.get_cname == 'Employee' %}
+												<div class="col-xl-4">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Info-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-60 symbol-circle">
+														<img src="/static/assets/media/svg/icons/Communication/Group.svg" style="width:120px;"/>
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<div class="d-flex flex-column mr-auto">
+															<h2 class="text-dark font-size-h4 font-weight-bolder mb-1">Çalışanlar</h2>
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-7">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Info-->
+												<div class="table-responsive">
+													<table class="table table-borderless table-vertical-center">
+														<thead>
+															<tr>
+																<th class="p-0" style="min-width: 150px"></th>
+															</tr>
+														</thead>
+														<tbody>
+															{%for employee in qs%}
+															<tr>
+																<td class="pl-0">
+																	<a href="/office/{{employee.slug}}/view_employee" class="font-weight-bolder text-hover-info mb-1 font-size-lg">{{employee.full_name}}</a>
+																</td>
+															</tr>
+															{%endfor%}
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-sm-center flex-wrap flex-column flex-sm-row">
+												<div class="d-flex">
+													<div class="d-flex mr-7">
+														<span class="svg-icon svg-icon-gray-500">
+															<!--begin::Svg Icon | path:assets/media/svg/icons/Text/Bullet-list.svg-->
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																	<rect x="0" y="0" width="24" height="24" />
+																	<path d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z" fill="#000000" />
+																	<path d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z" fill="#000000" opacity="0.3" />
+																</g>
+															</svg>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="font-weight-boldest text-primary ml-2">{{qs|length}} sonuç</span>
+													</div>
+
+												</div>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end:: Card-->
+									</div>
+											{% elif qs.0.get_cname == 'Expense' %}
+												<div class="col-xl-4">
+										<!--begin::Card-->
+										<div class="card card-custom gutter-b card-stretch">
+											<!--begin::Body-->
+											<div class="card-body">
+												<!--begin::Info-->
+												<div class="d-flex align-items-center">
+													<!--begin::Pic-->
+													<div class="flex-shrink-0 mr-4 symbol symbol-60 symbol-circle">
+														<img src="/static/assets/media/svg/icons/Shopping/Cart3.svg" style="width:120px;"/>
+													</div>
+													<!--end::Pic-->
+													<!--begin::Info-->
+													<div class="d-flex flex-column mr-auto">
+														<!--begin: Title-->
+														<div class="d-flex flex-column mr-auto">
+															<h2 class="text-dark font-size-h4 font-weight-bolder mb-1">Gelir-Gider Türü</h2>
+														</div>
+														<!--end::Title-->
+													</div>
+													<!--end::Info-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar mb-7">
+														<div class="dropdown dropdown-inline" data-toggle="tooltip" title="Quick actions" data-placement="left">
+
+														</div>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Info-->
+												<div class="table-responsive">
+													<table class="table table-borderless table-vertical-center">
+														<thead>
+															<tr>
+																<th class="p-0" style="min-width: 150px"></th>
+															</tr>
+														</thead>
+														<tbody>
+															{%for expense in qs%}
+															<tr>
+																<td class="pl-0">
+																	<a href="/expense/{{expense.id}}/view_expense" class="font-weight-bolder text-hover-info mb-1 font-size-lg">{{expense.title}}</a>
+																</td>
+															</tr>
+															{%endfor%}
+														</tbody>
+													</table>
+												</div>
+											</div>
+											<!--end::Body-->
+											<!--begin::Footer-->
+											<div class="card-footer d-flex align-items-sm-center flex-wrap flex-column flex-sm-row">
+												<div class="d-flex">
+													<div class="d-flex mr-7">
+														<span class="svg-icon svg-icon-gray-500">
+															<!--begin::Svg Icon | path:assets/media/svg/icons/Text/Bullet-list.svg-->
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																	<rect x="0" y="0" width="24" height="24" />
+																	<path d="M10.5,5 L19.5,5 C20.3284271,5 21,5.67157288 21,6.5 C21,7.32842712 20.3284271,8 19.5,8 L10.5,8 C9.67157288,8 9,7.32842712 9,6.5 C9,5.67157288 9.67157288,5 10.5,5 Z M10.5,10 L19.5,10 C20.3284271,10 21,10.6715729 21,11.5 C21,12.3284271 20.3284271,13 19.5,13 L10.5,13 C9.67157288,13 9,12.3284271 9,11.5 C9,10.6715729 9.67157288,10 10.5,10 Z M10.5,15 L19.5,15 C20.3284271,15 21,15.6715729 21,16.5 C21,17.3284271 20.3284271,18 19.5,18 L10.5,18 C9.67157288,18 9,17.3284271 9,16.5 C9,15.6715729 9.67157288,15 10.5,15 Z" fill="#000000" />
+																	<path d="M5.5,8 C4.67157288,8 4,7.32842712 4,6.5 C4,5.67157288 4.67157288,5 5.5,5 C6.32842712,5 7,5.67157288 7,6.5 C7,7.32842712 6.32842712,8 5.5,8 Z M5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 C6.32842712,10 7,10.6715729 7,11.5 C7,12.3284271 6.32842712,13 5.5,13 Z M5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 C6.32842712,15 7,15.6715729 7,16.5 C7,17.3284271 6.32842712,18 5.5,18 Z" fill="#000000" opacity="0.3" />
+																</g>
+															</svg>
+															<!--end::Svg Icon-->
+														</span>
+														<span class="font-weight-boldest text-primary ml-2">{{qs|length}} sonuç</span>
+													</div>
+
+												</div>
+											</div>
+											<!--end::Footer-->
+										</div>
+										<!--end:: Card-->
+									</div>
+											{%endif%}
+									{%endfor%}
+								</div>
+								<!--end::Row-->
+
+							</div>
+							<!--end::Content-->
+						</div>
+						<!--begin::Content Wrapper-->
+					</div>
+					<!--end::Container-->
+
+{% endblock %}
+
+{% block script %}
+  {% endblock %}

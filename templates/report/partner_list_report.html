@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+{% load humanize %}
+<body>
+
+<h2>{{results.title}} {{results.date}}</h2>
+
+<table>
+  <tr>
+    <th>Adı Soyadı</th>
+    <th>Tel No</th>
+    <th>Adres</th>
+    <th>Email</th>
+    <th>Dosya</th>
+  </tr>
+	{%for partner in results.qs%}
+  <tr>
+    <td>{{partner.full_name}}</td>
+    <td>{{partner.phone}}</td>
+    <td>
+		{{partner.address}}
+	</td>
+	<td>
+		{{partner.email}}
+	</td>
+	  <td>
+		{%for case in partner.cases.all%}
+			<span>{{case.title}}</span><br>
+		{%endfor%}
+	</td>
+  </tr>
+  	{%endfor%}
+	<tr>
+		<td colspan="5">Toplam: {{results.total}} ortak.</td>
+	</tr>
+</table>
+
+</body>
+</html>
