@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-import transactions.service as trans_service
+#import transactions.service as trans_service
 # Create your models here.
 
 class Expense(models.Model):
@@ -43,8 +43,8 @@ class Expense(models.Model):
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
 
-    def get_stats(self):
-        return trans_service.get_stats_expense(instance=self)
+#    def get_stats(self):
+#        return trans_service.get_stats_expense(instance=self)
 
     def get_cname(self):
         class_name = 'Expense'

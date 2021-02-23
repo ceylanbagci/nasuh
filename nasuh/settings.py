@@ -15,9 +15,13 @@ import os,sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(1, os.path.join(BASE_DIR, "apps"))
 
+print('+'*30)
+print(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,9 +31,9 @@ sys.path.insert(1, os.path.join(BASE_DIR, "apps"))
 SECRET_KEY = '0z$v3um7a0s^&t*7qyng3_x+)rhoi5*%=ul!y9dy#%7hr!_#&9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['188.166.117.124']
 
 
 # Application definition
@@ -41,12 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'django_select2',
     'django_filters',
     'authentication',
     'home',
     'core',
     'case',
+    'office',
+    'tax',
+    'other',
+    'expense',
+    'transactions',
+    'report',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +97,7 @@ WSGI_APPLICATION = 'nasuh.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -109,6 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'authentication.backends.EmailAuthenticationBackend',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -128,11 +142,17 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+#STATIC_URL = '/static/'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATIC_URL = '/static/'
+#STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/auth/login'
 LOGOUT_URL = '/auth/logout'
@@ -175,3 +195,6 @@ SELECT2_JS = '/static/assets/plugins/custom/select2/select2.min.js'
 SELECT2_CSS = '/static/assets/plugins/custom/select2/select2.min.css'
 SELECT2_I18N_PATH = '/static/assets/plugins/custom/select2/i18n/tr.js'
 
+#
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+# SESSION_COOKIE_AGE = 60
