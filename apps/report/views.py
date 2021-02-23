@@ -303,5 +303,3 @@ def get_expense_report(request):
         os.remove(fs.location + '/' + file_name)
         return response
     return response
-
-
