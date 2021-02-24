@@ -190,15 +190,13 @@ def get_stats_other(**kwargs):
 
 def end_of_the_day(**kwargs):
     date = kwargs.pop('date')
-    print(date)
-    print(type(date))
     results={}
     results['qs'] = Transaction.objects.filter(date=date).order_by('date')
     results['title'] = 'Gün Sonu'
     results['date'] = date.strftime('%d.%m.%Y')
     results['income'] = results['qs'].aggregate(sum=Sum('amount', filter=Q(type=Transaction.INCOME)))
     results['spent'] = results['qs'].aggregate(sum=Sum('amount', filter=Q(type=Transaction.SPENT)))
-
+    print(result)
     return results
 
 def end_of_the_month(**kwargs):
