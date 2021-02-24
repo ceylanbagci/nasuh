@@ -19,7 +19,10 @@ def end_of_the_day(request,date=datetime.date.today()):
     static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_day(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
+    print(static_root)
+    print(static_root[0])
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    print(stylesheets)
     file_name = 'gun_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     print('1')
     HTML(string=html_string).\

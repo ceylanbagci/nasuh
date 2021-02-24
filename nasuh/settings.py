@@ -20,10 +20,6 @@ import os,sys
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(1, os.path.join(BASE_DIR, "apps"))
 
-print('+'*30)
-print(BASE_DIR)
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
