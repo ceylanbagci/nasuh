@@ -21,8 +21,10 @@ def end_of_the_day(request,date=datetime.date.today()):
     html_string = render_to_string('report/end_of.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
     file_name = 'gun_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
+    print('1')
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
+    print('2')
     fs = FileSystemStorage(fs.location +'/report')
     with fs.open(fs.location + '/'+file_name) as pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
