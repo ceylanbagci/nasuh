@@ -2,8 +2,8 @@ migrations/
 db.sqlite3
 .DS_Store
 __pycache__/
+nasuh/settings.py
 
-settings.py
 # Pycharm folder
 .idea/
 
