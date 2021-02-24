@@ -19,14 +19,10 @@ def end_of_the_day(request,date=datetime.date.today()):
     static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_day(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
-    print(static_root)
     stylesheets = [CSS(static_root + '/assets/css/report.css'),]
-    print(stylesheets)
     file_name = 'gun_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
-    print('1')
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
-    print('2')
     fs = FileSystemStorage(fs.location +'/report')
     with fs.open(fs.location + '/'+file_name) as pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
@@ -41,22 +37,12 @@ def end_of_the_month(request,date=datetime.date.today()):
     fs = FileSystemStorage()
     static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_month(date=date)
-    print('1'*30)
     html_string = render_to_string('report/end_of.html',{'results':results})
-    print('2'*30)
-
     stylesheets = [CSS(static_root + '/assets/css/report.css'),]
-    print('3'*30)
     file_name = 'ay_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
-    print('4'*30)
-
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
-    print('5'*30)
-
     fs = FileSystemStorage(fs.location +'/report')
-    print('6'*30)
-
     with fs.open(fs.location + '/'+file_name) as pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
         file_str = 'attachment; filename="'+file_name+'"'
