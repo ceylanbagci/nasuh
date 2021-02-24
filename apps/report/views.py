@@ -20,8 +20,7 @@ def end_of_the_day(request,date=datetime.date.today()):
     results = trans_service.end_of_the_day(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
     print(static_root)
-    print(static_root[0])
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     print(stylesheets)
     file_name = 'gun_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     print('1')
@@ -46,7 +45,7 @@ def end_of_the_month(request,date=datetime.date.today()):
     html_string = render_to_string('report/end_of.html',{'results':results})
     print('2'*30)
 
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     print('3'*30)
     file_name = 'ay_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     print('4'*30)
@@ -72,7 +71,7 @@ def end_of_the_year(request,date=datetime.date.today()):
     static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_year(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     file_name = 'yıl_sonu_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
@@ -91,7 +90,7 @@ def get_case_list_report(request):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_case_list_report()
     html_string = render_to_string('report/case_list_report.html',{'results':results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     file_name = 'dava_dosyaları_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
@@ -110,7 +109,7 @@ def get_client_list_report(request):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_client_list_report()
     html_string = render_to_string('report/client_list_report.html',{'results':results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     file_name = 'müvekkil_listesi_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
@@ -129,7 +128,7 @@ def get_partner_list_report(request):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_partner_list_report()
     html_string = render_to_string('report/partner_list_report.html',{'results':results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     file_name = 'ortak_listesi_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
@@ -148,7 +147,7 @@ def get_employee_list_report(request):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_employee_list_report()
     html_string = render_to_string('report/employee_list_report.html',{'results':results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'),]
     file_name = 'çalışan_listesi_'+str(datetime.date.today().strftime("%d.%m.%Y"))+'_.pdf'
     HTML(string=html_string).\
           write_pdf(fs.location+'/report/'+file_name,stylesheets=stylesheets)
@@ -196,7 +195,7 @@ def get_case_report(request,slug):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_case_report(instance=case)
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = case.title + '_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
@@ -216,7 +215,7 @@ def get_client_report(request,slug):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_client_report(instance=client)
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = client.full_name + '_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
@@ -236,7 +235,7 @@ def get_employee_report(request,slug):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_employee_report(instance=employee)
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = employee.full_name + '_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
@@ -256,7 +255,7 @@ def get_partner_report(request,slug):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_partner_report(instance=partner)
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = partner.full_name + '_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
@@ -276,7 +275,7 @@ def get_single_expense_report(request,slug):
     static_root = settings.STATIC_ROOT
     results = trans_service.get_single_expense_report(instance=expense)
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = expense.title + 'icin_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
@@ -306,7 +305,7 @@ def get_expense_report(request):
     fs = FileSystemStorage()
     static_root = settings.STATIC_ROOT
     html_string = render_to_string('report/end_of.html', {'results': results})
-    stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
+    stylesheets = [CSS(static_root + '/assets/css/report.css'), ]
     file_name = 'gelir-gider_turu_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
     HTML(string=html_string). \
         write_pdf(fs.location + '/report/' + file_name, stylesheets=stylesheets)
