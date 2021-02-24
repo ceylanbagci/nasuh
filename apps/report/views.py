@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def end_of_the_day(request,date=datetime.date.today()):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_day(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -37,7 +37,7 @@ def end_of_the_day(request,date=datetime.date.today()):
 @login_required
 def end_of_the_month(request,date=datetime.date.today()):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_month(date=date)
     print('1'*30)
     html_string = render_to_string('report/end_of.html',{'results':results})
@@ -66,7 +66,7 @@ def end_of_the_month(request,date=datetime.date.today()):
 @login_required
 def end_of_the_year(request,date=datetime.date.today()):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.end_of_the_year(date=date)
     html_string = render_to_string('report/end_of.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -85,7 +85,7 @@ def end_of_the_year(request,date=datetime.date.today()):
 @login_required
 def get_case_list_report(request):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_case_list_report()
     html_string = render_to_string('report/case_list_report.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -104,7 +104,7 @@ def get_case_list_report(request):
 @login_required
 def get_client_list_report(request):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_client_list_report()
     html_string = render_to_string('report/client_list_report.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -123,7 +123,7 @@ def get_client_list_report(request):
 @login_required
 def get_partner_list_report(request):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_partner_list_report()
     html_string = render_to_string('report/partner_list_report.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -142,7 +142,7 @@ def get_partner_list_report(request):
 @login_required
 def get_employee_list_report(request):
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_employee_list_report()
     html_string = render_to_string('report/employee_list_report.html',{'results':results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'),]
@@ -190,7 +190,7 @@ def get_with_year(request):
 def get_case_report(request,slug):
     case = Case.objects.get(slug=slug)
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_case_report(instance=case)
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
@@ -210,7 +210,7 @@ def get_case_report(request,slug):
 def get_client_report(request,slug):
     client = Client.objects.get(slug=slug)
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_client_report(instance=client)
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
@@ -230,7 +230,7 @@ def get_client_report(request,slug):
 def get_employee_report(request,slug):
     employee = Employee.objects.get(slug=slug)
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_employee_report(instance=employee)
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
@@ -250,7 +250,7 @@ def get_employee_report(request,slug):
 def get_partner_report(request,slug):
     partner = Partner.objects.get(slug=slug)
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_partner_report(instance=partner)
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
@@ -270,7 +270,7 @@ def get_partner_report(request,slug):
 def get_single_expense_report(request,slug):
     expense = Expense.objects.get(slug=slug)
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     results = trans_service.get_single_expense_report(instance=expense)
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
@@ -301,7 +301,7 @@ def get_expense_report(request):
         results = trans_service.get_expense_report(object='expense')
 
     fs = FileSystemStorage()
-    static_root = settings.STATICFILES_DIRS
+    static_root = settings.STATIC_ROOT
     html_string = render_to_string('report/end_of.html', {'results': results})
     stylesheets = [CSS(static_root[0] + '/assets/css/report.css'), ]
     file_name = 'gelir-gider_turu_hesap_hareketleri_' + str(datetime.date.today().strftime("%d.%m.%Y")) + '_.pdf'
