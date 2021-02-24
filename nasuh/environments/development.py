@@ -128,7 +128,7 @@ LANGUAGE_CODE = 'tr-TR'
 
 TIME_ZONE = 'Europe/Istanbul'
 
-USE_I18N = True
+# USE_I18N = True
 
 USE_L10N = True
 
@@ -143,9 +143,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-print(BASE_DIR)
-print(STATICFILES_DIRS)
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 LOGIN_URL = '/auth/login'

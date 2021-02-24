@@ -40,6 +40,24 @@ class SalaryForm(BaseForm,forms.ModelForm):
         self.fields["expense"].disabled = True
 
 
+
+class ExpenseSalaryForm(BaseForm,forms.ModelForm):
+
+    class Meta:
+        model = Transaction
+        fields = ("amount","type",'expense','date','description','employee')
+        widgets = {
+            "description": forms.Textarea(attrs={"rows": 2}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ExpenseSalaryForm, self).__init__(*args, **kwargs)
+        initial = kwargs.pop('initial')
+        print(initial)
+        self.fields["expense"].disabled = True
+        self.fields["expense"].initial = initial['expense']
+
+
 class ExpenseCaseForm(BaseForm,forms.ModelForm):
 
     class Meta:
