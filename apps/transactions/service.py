@@ -196,7 +196,7 @@ def end_of_the_day(**kwargs):
     results['date'] = date.strftime('%d.%m.%Y')
     results['income'] = results['qs'].aggregate(sum=Sum('amount', filter=Q(type=Transaction.INCOME)))
     results['spent'] = results['qs'].aggregate(sum=Sum('amount', filter=Q(type=Transaction.SPENT)))
-    print(result)
+    print(results)
     return results
 
 def end_of_the_month(**kwargs):
