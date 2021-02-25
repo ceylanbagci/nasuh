@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'expense',
     'transactions',
     'report',
+    'user_calendar',
 ]
 
 MIDDLEWARE = [
