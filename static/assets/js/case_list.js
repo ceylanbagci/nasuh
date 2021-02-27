@@ -25,4 +25,5 @@ function labelStyle(){
 
 jQuery(document).ready(function () {
 	labelStyle();
+
 });

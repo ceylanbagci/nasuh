@@ -48,6 +48,7 @@ class ExpenseSalaryForm(BaseForm,forms.ModelForm):
         fields = ("amount","type",'expense','date','description','employee')
         widgets = {
             "description": forms.Textarea(attrs={"rows": 2}),
+
         }
 
     def __init__(self, *args, **kwargs):

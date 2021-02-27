@@ -1,0 +1,77 @@
+{% extends "home/base.html" %}
+{% load humanize %}
+
+{% block head %}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-5FS8GGP');</script>
+<!-- End Google Tag Manager -->
+{{form.media}}
+{% endblock %}
+
+{% block content %}
+
+
+	<body id="kt_body" class="">
+
+		<!--begin::Main-->
+
+		<div class="">
+			<!--begin::Page-->
+			<div class="">
+
+				<!--begin::Wrapper-->
+				<div class="" id="kt_wrapper">
+
+					<!--begin::Content-->
+					<div class="" id="kt_content">
+
+						<!--begin::Entry-->
+						<div class="d-flex flex-column-fluid">
+							<!--begin::Container-->
+							<div class="container">
+
+								<!--begin::Example-->
+								<!--begin::Card-->
+								<div class="card card-custom">
+									<div class="card-header">
+										<div class="card-title">
+											<h3 class="card-label">Takvim</h3>
+										</div>
+										<div class="card-toolbar">
+											<a href="/user_calendar/new" class="btn btn-light-primary font-weight-bold">
+											<i class="ki ki-plus icon-md mr-2"></i>Ekle</a>
+										</div>
+									</div>
+									<div class="card-body">
+										<div id="kt_calendar"></div>
+									</div>
+								</div>
+								<!--end::Card-->
+
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Entry-->
+					</div>
+					<!--end::Content-->
+
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Main-->
+
+
+	</body>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/static/assets/js/pages/features/calendar/basic.js"></script>
+<!--<script src="/static/assets/plugins/custom/fullcalendar/locale-all.js"></script>-->
+<!--<script src="/static/assets/js/fullcalendar_init.js"></script>-->
+
+{% endblock %}
+

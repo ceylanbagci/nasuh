@@ -1,0 +1,194 @@
+{% extends "home/base.html" %}
+{% load humanize %}
+
+{% block head %}
+{{form.media}}
+{% endblock %}
+
+{% block content %}
+<!--end::Subheader-->
+<div class="content flex-column-fluid" id="kt_content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Hatırlatıcı  Oluştur</h3>
+
+                </div>
+                <!--begin::Form-->
+                {%if instance%}
+                    <form action="/user_calendar/{{instance.slug}}/update" method="post" enctype="multipart/form-data" novalidate>
+                {%else%}
+                    <form action="/user_calendar/new" method="post" enctype="multipart/form-data" novalidate>
+                {%endif%}
+                        {% csrf_token %}
+
+                        <div class="card-body ">
+                        <div class="form-group">
+                                <label>Başlık
+                                <span class="text-danger">*</span></label>
+                                {{form.title}}
+                                {%for error in form.title.errors%}
+                                <div class="validated">
+                                    <div class="invalid-feedback">
+                                        {{error}}
+                                    </div>
+                                </div>
+                                {%endfor%}
+                                <span class="form-text text-muted">Başlık Girin.</span>
+                            </div>
+
+                         <div class="row">
+
+                         <div class="form-group col-lg-6">
+                            <label>Başlangıç Tarihi <span class="text-danger">*</span> </label>
+
+                            <div class="input-group date" id="kt_datetimepicker_1" data-target-input="nearest">
+                               {{form.start}}
+                                <div class="input-group-append" data-target="#kt_datetimepicker_1" data-toggle="datetimepicker">
+                                    <span class="input-group-text">
+                                     <i class="ki ki-calendar"></i>
+                                    </span>
+                               </div>
+
+                              </div>
+                             {%for error in form.start.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+
+                         <div class="form-group col-lg-6">
+                            <label>Bitiş Tarihi <span class="text-danger">*</span></label>
+                            <div class="input-group date" id="kt_datetimepicker_2" data-target-input="nearest">
+                               {{form.end}}
+                                <div class="input-group-append" data-target="#kt_datetimepicker_2" data-toggle="datetimepicker">
+                                    <span class="input-group-text">
+                                     <i class="ki ki-calendar"></i>
+                                    </span>
+                               </div>
+                              </div>
+                             <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{form.non_field_errors}}
+                                </div>
+                            </div>
+                             {%for error in form.start.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+
+                        </div>
+                            <div class="row">
+                                <div class="form-group col-lg-4">
+                            <label>Önem</label>
+                            <div class="radio-inline ">
+                                <label class="radio  radio-primary text-primary">
+                                    <input type="radio" name="radios2" id="_primary" value="#3699ff" />
+                                    <span></span>
+                                    Normal
+                                </label>
+                                <label class="radio  radio-warning text-warning">
+                                    <input type="radio" name="radios2"   id="_warning" value="#ffa800" />
+                                    <span></span>
+                                    Önemli
+                                </label>
+                                <label class="radio  radio-danger text-danger">
+                                    <input type="radio" name="radios2"   id="_danger" value="#f64e60" />
+                                    <span></span>
+                                    Çok Önemli
+                                </label>
+                            </div>
+                            <span class="form-text text-muted">Önem Derecesini Girin.</span>
+                        </div>
+
+                             <div class="form-group">
+                              <label class="col-form-label" style="padding-bottom:0px !important;">Pasif-Aktif</label>
+                              <div class="">
+                               <span class="switch switch-outline switch-icon switch-success">
+                                <label>
+                                 {{form.is_active}}
+                                 <span></span>
+                                </label>
+                               </span>
+                              </div>
+                             </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Açıklama
+                            <span class="text-danger"></span></label>
+                            {{form.description}}
+                            {%for error in form.description.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Açıklama Girin.</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Dosya
+                            <span class="text-danger"></span></label>
+                            {{form.case}}
+                            {%for error in form.case.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Dosya Seçin.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Müvekkil
+                            <span class="text-danger"></span></label>
+                            {{form.client}}
+                            {%for error in form.client.errors%}
+                            <div class="validated">
+                                <div class="invalid-feedback">
+                                    {{error}}
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <span class="form-text text-muted">Müvekkil Girin.</span>
+                        </div>
+                    </div>
+                    {{form.backgroundColor}}
+                     {{form.borderColor}}
+                    <div class="card-footer">
+                        <button class="btn btn-primary mr-2" type="submit">Kaydet</button>
+                        {%if instance%}
+                        <a href="/user_calendar/delete/{{instance.slug}}" class="btn btn-danger mr-2 btn-delete-confirmation"> Sil</a>
+                        {%endif%}
+                        <button type="reset" onClick="window.location.reload();" class="btn btn-secondary">İptal</button>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Card-->
+
+        </div>
+    </div>
+
+</div>
+<!--end::Content-->
+{% endblock %}
+
+{% block script %}
+<script src="/static/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
+<script src="/static/assets/js/calendar.js"></script>
+
+  {% endblock %}
