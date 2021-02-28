@@ -4,7 +4,6 @@ from case.models import*
 from django.db import models
 import core.helper as hlp
 from expense.models import Expense
-#import transactions.service as trans_service
 
 class Office(models.Model):
     title = models.CharField(max_length=60, verbose_name='Başlık')
@@ -35,8 +34,9 @@ class Office(models.Model):
         lenght = len(Partner.objects.all())
         return lenght
 
- #   def get_stats(self):
- #       return trans_service.get_stats_office(instance=self)
+    def get_stats(self):
+        import transactions.service as trans_service
+        return trans_service.get_stats_office(instance=self)
 
 
 class Employee(models.Model):
@@ -79,8 +79,9 @@ class Employee(models.Model):
             self.slug = self._generate_unique_slug()
         super().save(*args, **kwargs)
 
-  #  def get_stats(self):
-  #      return trans_service.get_stats_employee(instance=self)
+    def get_stats(self):
+        import transactions.service as trans_service
+        return trans_service.get_stats_employee(instance=self)
 
     def get_cname(self):
         class_name = 'Employee'

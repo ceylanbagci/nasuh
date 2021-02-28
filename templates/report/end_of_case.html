@@ -3,7 +3,8 @@
 {% load humanize %}
 <body>
 
-<h2>{{results.title}} {{results.date}}</h2>
+<h2>Dosya {{results.date}}</h2>
+
 <table>
   <tr>
     <th>Tarih</th>
@@ -38,8 +39,8 @@
   {%endfor%}
 	<td>Toplam:</td>
 	<td>{{results.date}}</td>
-	<td>Gelir: {{results.income.sum|intcomma}}₺</td>
-	<td style="color:red;">Gider: {{results.spent.sum|intcomma}}₺</td>
+	<td>Gelir: {{results.income.sum|intcomma}}</td>
+	<td style="color:red;">Gider: {{results.spent.sum|intcomma}}</td>
 </table>
 
 </body>

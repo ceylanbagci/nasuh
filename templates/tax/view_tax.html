@@ -36,7 +36,6 @@
 
 				</div>
 				<div class="my-lg-0 my-1">
-					<a href="/report/get_expense_report" class="btn btn-sm btn-light-success font-weight-bolder text-uppertax mr-3">Rapor Al</a>
 					<a href="/tax/{{tax.slug}}/update" class="btn btn-sm btn-info font-weight-bolder text-uppertax mr-3">Düzenle</a>
 				</div>
 			</div>
@@ -70,7 +69,7 @@
 			<div class="d-flex flex-column text-dark-75">
 				<span class="font-weight-bolder font-size-sm">Gelir</span>
 				<span class="font-weight-bolder font-size-h5">
-				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.total_income}} ₺</span>
+				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.total_income.humanize}} ₺</span>
 			</div>
 		</div>
 		<!--end: Item-->
@@ -82,7 +81,7 @@
 			<div class="d-flex flex-column text-dark-75">
 				<span class="font-weight-bolder font-size-sm">Gider</span>
 				<span class="font-weight-bolder font-size-h5">
-				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.total_spent}} ₺</span>
+				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.total_spent.humanize}} ₺</span>
 			</div>
 		</div>
 		<!--end: Item-->
@@ -94,7 +93,7 @@
 			<div class="d-flex flex-column text-dark-75">
 				<span class="font-weight-bolder font-size-sm">Kâr</span>
 				<span class="font-weight-bolder font-size-h5">
-				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.get_difference|intcomma}} ₺</span>
+				<span class="text-dark-50 font-weight-bold"></span>{{tax.get_stats.get_difference.humanize|intcomma}} ₺</span>
 			</div>
 		</div>
 		<!--end: Item-->
@@ -191,10 +190,10 @@
 						<span class="text-muted font-weight-bold"></span>
 					</td>
 					<td>
-						<span class="label label-lg label-light-success label-inline">{{tax.get_stats.total_income}} ₺</span>
+						<span class="label label-lg label-light-success label-inline">{{tax.get_stats.total_income.humanize}} ₺</span>
 					</td>
 					<td>
-						<span class="label label-lg label-light-danger  label-inline">{{tax.get_stats.total_spent}} ₺</span>
+						<span class="label label-lg label-light-danger  label-inline">{{tax.get_stats.total_spent.humanize}} ₺</span>
 						<span class="text-muted font-weight-bold"></span>
 					</td>
 					<td>

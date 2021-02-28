@@ -13,7 +13,7 @@ var element = $('#btn-styled')
         }else if ( value == '5') {
             element.addClass('btn-dark');
         }else{
-            element.addClass(' ');
+            element.addClass(' btn-secondary');
         }
 
 };

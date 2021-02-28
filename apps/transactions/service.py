@@ -20,6 +20,7 @@ def get_stats_expense(**kwargs):
         stats["total_spent"]['sum'] = 0
     stats["get_difference"] = stats["total_income"]['sum'] + stats["total_spent"]['sum']
     stats["total"] = qs.count()
+    print(stats)
     return stats
 
 def get_stats_employee(**kwargs):

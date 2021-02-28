@@ -22,7 +22,7 @@ def view_case(request,slug):
     #     trans.case = case
     #     trans.amount = 350
     #     trans.save()
-
+    partnership_list = Partnership.objects.filter(case=case)
     transactions = case.transactions.all().order_by('-date')
     paginator = Paginator(transactions, 10)
     page = request.GET.get('page')
@@ -33,7 +33,7 @@ def view_case(request,slug):
     except EmptyPage:
         response = paginator.page(paginator.num_pages)
 
-    return render(request, 'case/view_case.html', {"results": response, "case": case,
+    return render(request, 'case/view_case.html', {"results": response, "case": case, "partnership_list": partnership_list,
                                                          "next_page_params": "&" + request.GET.urlencode().replace(
                                                              "page=", "empty_param=")})
 
@@ -95,7 +95,7 @@ def delete(request,slug):
         messages.success(request, custom_messages.DELETE_SUCCESS)
     except Exception as e:
         messages.error(request, custom_messages.DELETE_ERROR)
-    return redirect(coming_url)
+    return redirect("/case/case_list")
 
 @login_required
 def view_client(request,slug):
@@ -175,7 +175,7 @@ def delete_client(request,slug):
         messages.success(request, custom_messages.DELETE_SUCCESS)
     except Exception as e:
         messages.error(request, custom_messages.DELETE_ERROR)
-    return redirect(coming_url)
+    return redirect("/case/client_list")
 
 @login_required
 def view_partner(request,slug):
@@ -251,6 +251,7 @@ def update_partner(request,slug):
 
 @login_required
 def determine_share(request,partner,case):
+    coming_url = request.META.get("HTTP_REFERER")
     partner = hlp.get_or_none(Partner, slug=partner)
     case = hlp.get_or_none(Case, slug=case)
     if request.method == "POST":
@@ -258,11 +259,7 @@ def determine_share(request,partner,case):
         if form.is_valid():
             form.save()
             messages.success(request, custom_messages.CREATE_SUCCESS)
-            if partner:
-                return redirect("/case/%s/view_partner" % partner.slug)
-            else:
-                return redirect("/case/%s/view_case" % case.slug)
-
+            return redirect(coming_url)
         else:
             error = form.errors['__all__'].as_data()
             for e in error:
@@ -280,7 +277,7 @@ def delete_partner(request,slug):
         messages.success(request, custom_messages.DELETE_SUCCESS)
     except Exception as e:
         messages.error(request, custom_messages.DELETE_ERROR)
-    return redirect(coming_url)
+    return redirect("/case/partner_list")
 
 @login_required
 def partnership_delete(request,id):

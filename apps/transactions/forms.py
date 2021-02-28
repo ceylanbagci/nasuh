@@ -20,7 +20,6 @@ class TransactionForm(BaseForm,forms.ModelForm):
         self.fields["expense"].initial = initial['instance']
 
 
-
 class SalaryForm(BaseForm,forms.ModelForm):
 
     class Meta:

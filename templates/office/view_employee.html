@@ -36,7 +36,6 @@
 								</a>
 							</div>
 							<div class="my-lg-0 my-3">
-								<a href="/report/{{employee.slug}}/get_employee_report" class="btn btn-sm btn-light-success font-weight-bolder text-uppercase mr-3">Rapor Al</a>
 								<a href="/office/{{employee.slug}}/update_employee" class="btn btn-sm btn-info font-weight-bolder text-uppercase mr-3">Düzenle</a>
 								<a href="/office/{{employee.slug}}/delete_employee" class="btn btn-sm btn-light-danger font-weight-bolder text-uppercase btn-delete-confirmation">Sil</a>
 							</div>
@@ -88,7 +87,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Gelir</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.total_income.sum|intcomma}} ₺</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.total_income.sum.humanize|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -100,7 +99,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Gider</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.total_spent.sum|intcomma}} ₺</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.total_spent.sum.humanize|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -112,7 +111,7 @@
 						<div class="d-flex flex-column text-dark-75">
 							<span class="font-weight-bolder font-size-sm">Kâr</span>
 							<span class="font-weight-bolder font-size-h5">
-							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.get_difference|intcomma}} ₺</span>
+							<span class="text-dark-50 font-weight-bold"></span>{{employee.get_stats.get_difference.humanize|intcomma}} ₺</span>
 						</div>
 					</div>
 					<!--end: Item-->
@@ -214,10 +213,10 @@
 											<span class="text-muted font-weight-bold"></span>
 										</td>
 										<td>
-											<span class="label label-lg label-light-success label-inline">{{employee.get_stats.total_income.sum|intcomma}} ₺</span>
+											<span class="label label-lg label-light-success label-inline">{{employee.get_stats.total_income.sum.humanize|intcomma}} ₺</span>
 										</td>
 										<td>
-											<span class="label label-lg label-light-danger  label-inline">{{employee.get_stats.total_spent.sum|intcomma}} ₺</span>
+											<span class="label label-lg label-light-danger  label-inline">{{employee.get_stats.total_spent.sum.humanize|intcomma}} ₺</span>
 											<span class="text-muted font-weight-bold"></span>
 										</td>
 										<td>

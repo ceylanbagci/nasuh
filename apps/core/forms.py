@@ -29,7 +29,7 @@ class BaseForm():
             elif type(visible.field)==forms.fields.DateField:
                 visible.field.widget.attrs["class"] += " datepicker-input"
             elif type(visible.field)==forms.fields.TypedChoiceField or type(visible.field)==forms.models.ModelChoiceField or type(visible.field)==forms.ChoiceField:
-                visible.field.widget.attrs["class"] += " ui dropdown cntry152"
+                visible.field.widget.attrs["class"] += " "
             elif type(visible.field)==forms.fields.ImageField:
                 visible.field.widget.attrs["class"] += " image"
             elif type(visible.field)==forms.fields.TimeField:

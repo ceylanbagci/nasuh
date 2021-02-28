@@ -2,6 +2,7 @@
 {% load humanize %}
 
 {% block head %}
+{{form.media.css}}
 {{form.media}}
 		<!--<link rel="shortcut icon" href="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.css" />-->
 {% endblock %}
@@ -102,7 +103,7 @@
                         <div class="form-group">
                             <label>Müvekkil</label>
                             {{form.client}}
-                            <span class="form-text text-muted">Müvekkil Ekleyin.</span>
+                            <span class="form-text text-muted">Müvekkil Ekleyin.(Birden fazla ekleyebilirsiniz!)</span>
                             {%for error in form.client.errors%}
                               <div class="invalid-feedback">{{error}}</div>
                             {%endfor%}
@@ -111,7 +112,7 @@
                         <div class="form-group">
                             <label>Ortak</label>
                             {{form.partner}}
-                            <span class="form-text text-muted">Ortak Ekleyin.</span>
+                            <span class="form-text text-muted">Ortak Ekleyin.(Birden fazla ekleyebilirsiniz!)</span>
                             {%for error in form.partner.errors%}
                               <div class="invalid-feedback">{{error}}</div>
                             {%endfor%}
@@ -134,16 +135,17 @@
 {% endblock %}
 
 {% block script %}
-<script src="/static/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
 <script src="/static/assets/js/city_district.js"></script>
 <!--<script src="/static/assets/js/filteredselect.js"></script>-->
-{{form.media}}
+{{form.media.js}}
 <script>
 
     $('#kt_datetimepicker_1').datetimepicker({
                     format: 'DD/MM/YYYY',
-                    locale: 'tr'
+                    locale: 'tr',
+                    autoclose: true,
                 });
+
 
 </script>
 <script type="text/javascript">
@@ -152,7 +154,6 @@
       $("body").attr("JSError", msg);
     }
 
+
 </script>
-<!--<script src="/static/assets/js/sweetalert_init.js"></script>-->
-<!--<script src="/static/assets/plugins/custom/sweetalert2/dist/sweetalert2.min.js"></script>-->
   {% endblock %}

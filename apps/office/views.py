@@ -132,7 +132,7 @@ def delete_employee(request,slug):
         messages.success(request, custom_messages.DELETE_SUCCESS)
     except Exception as e:
         messages.error(request, custom_messages.DELETE_ERROR)
-    return redirect(coming_url)
+    return redirect('/office/employee_list')
 
 @login_required
 def employee_list(request):

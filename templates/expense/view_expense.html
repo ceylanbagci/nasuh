@@ -36,8 +36,6 @@
 
 				</div>
 				<div class="my-lg-0 my-1">
-					<a href="/report/{{expense.slug}}/get_single_expense_report" class="btn btn-sm btn-light-success font-weight-bolder text-upperexpense mr-3">Rapor Al</a>
-					<a href="/expense/expense_list_all" class="btn btn-sm btn-primary font-weight-bolder text-upperexpense mr-3">Tüm Gelir Giderler</a>
 					<a href="/expense/{{expense.slug}}/update" class="btn btn-sm btn-info font-weight-bolder text-upperexpense mr-3">Düzenle</a>
 					<a href="/expense/{{expense.slug}}/delete" class="btn btn-sm btn-danger font-weight-bolder text-upperexpense mr-3">Sil</a>
 				</div>
@@ -78,6 +76,7 @@
 				<span class="font-weight-bolder font-size-h5">
 				<span class="text-dark-50 font-weight-bold"></span>{{expense.get_stats.total_income.sum|intcomma}} ₺</span>
 			</div>
+
 		</div>
 		<!--end: Item-->
 		<!--begin: Item-->

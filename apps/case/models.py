@@ -2,7 +2,9 @@ from django.db import models
 import datetime
 from django.utils.text import slugify
 import transactions.service as trans_service
-
+from django.db.models.signals import post_save,m2m_changed
+from django.dispatch import receiver
+import core.helper as hlp
 # Create your models here.
 
 class Client(models.Model):
@@ -109,13 +111,19 @@ class Partner(models.Model):
         class_name = 'Partner'
         return class_name
 
+
+
+
 class Partnership(models.Model):
     partner = models.ForeignKey('case.Partner', on_delete=models.CASCADE,
                              related_name="partnerships", verbose_name="Ortaklık")
     case = models.ForeignKey('case.Case', null=True, blank=True, on_delete=models.CASCADE,
                              related_name="partnerships", verbose_name="Dosya")
-    share = models.PositiveSmallIntegerField(null=True, blank=True,verbose_name="Hisse Yüzdesi")
+    share = models.PositiveSmallIntegerField(null=True, blank=True,default=0, verbose_name="Hisse Yüzdesi")
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "partnership"
 
 
 class Status(models.Model):
@@ -191,5 +199,6 @@ class Case(models.Model):
     def get_cname(self):
         class_name = 'Case'
         return class_name
+
 
 

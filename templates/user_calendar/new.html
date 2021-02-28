@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block head %}
-{{form.media}}
+{{form.media.css}}
 {% endblock %}
 
 {% block content %}
@@ -190,5 +190,5 @@
 {% block script %}
 <script src="/static/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
 <script src="/static/assets/js/calendar.js"></script>
-
+{{form.media.js}}
   {% endblock %}

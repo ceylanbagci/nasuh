@@ -16,8 +16,8 @@ class CaseForm(BaseForm,forms.ModelForm):
         widgets = {
             "description": forms.Textarea(attrs={"rows": 2}),
             # "client":FilteredSelectMultiple('Müvekkiller', is_stacked=False),
-            "client": s2forms.Select2TagWidget(),
-            "partner": s2forms.Select2TagWidget(),
+            "client": s2forms.Select2MultipleWidget(),
+            "partner": s2forms.Select2MultipleWidget(),
 
         }
 
@@ -25,6 +25,8 @@ class CaseForm(BaseForm,forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CaseForm, self).__init__(*args, **kwargs)
         self.fields['date'].widget.attrs.update({'data-target': 'kt_datetimepicker_1'})
+        self.fields['client'].widget.attrs.update({'data-language': 'tr'})
+        self.fields['partner'].widget.attrs.update({'data-language': 'tr'})
         self.fields['client'].queryset = Client.objects.all()
         self.fields['partner'].queryset = Partner.objects.all()
         self.fields['partner'].required = False

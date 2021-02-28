@@ -1,10 +1,9 @@
 from django import forms
 from core.forms import *
 from .models import *
-from django.contrib import messages
-import core.custom_messages as custom_messages
 from case.models import*
 from django.core.exceptions import ValidationError
+from django_select2 import forms as s2forms
 
 class EventForm(BaseForm,forms.ModelForm):
 
@@ -14,6 +13,9 @@ class EventForm(BaseForm,forms.ModelForm):
         exclude = ('created_at','slug', 'editable')
         widgets = {
             "description": forms.Textarea(attrs={"rows": 2}),
+            "case": s2forms.Select2Widget(),
+            "client": s2forms.Select2Widget(),
+
         }
 
     def __init__(self, *args, **kwargs):
